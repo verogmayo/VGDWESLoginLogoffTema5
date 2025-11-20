@@ -1,3 +1,16 @@
+        <?php
+        /**
+         * @author: Véronique Grué
+         * @since 20/11/2025
+         * 
+         
+         */
+        if (isset($_REQUEST["login"])){
+            header("location: codigoPHP/login.php");
+            exit;
+        }
+        
+        ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -11,14 +24,21 @@
         <!--https://cdnjs.com/libraries/font-awesome --> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     </head>
+    
     <body>
         <header class="header">
-            <h1>LOGIN LOGOFF TEMA 5</h1>
+            <p>LOGIN LOGOFF TEMA 5</p>
+            <h1>INICIO PUBLICO</h1>
+            <form>
+                    <button type="submit" name="login" id="login">login</button>
+                </form>
+           
         </header>
         <main>
             <section>
-
-
+                
+                <h4>BIENVENIDO A INICIO PUBLICO</h4>
+                
             </section>
         </main>
         <footer class="footer">

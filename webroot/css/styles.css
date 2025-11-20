@@ -55,6 +55,10 @@ h3{
     padding: 0.5rem;
     color: blue;
 }
+h4{
+    font-size: 48px;
+    text-align: center;
+}
 
 .proyecto{
   width: 70%;
@@ -143,4 +147,7 @@ address{
 }
 .copyright{
     margin-right: 20px;
+}
+button{
+   right: 0;
 }
