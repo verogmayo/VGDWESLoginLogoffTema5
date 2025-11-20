@@ -13,95 +13,12 @@
     </head>
     <body>
         <header class="header">
-            <a href="../VGDWESProyectoDWES/indexProyectoDWES.html">volver</a>
-            <h1>PROYECTO LOGIN LOGOFF TEMA 5</h1>
+            <h1>LOGIN LOGOFF TEMA 5</h1>
         </header>
         <main>
             <section>
 
-                <h3>CONTENIDO DE LOS FICHEROS EXTERNOS</h3>
-                <table>
-                    <tr>
-                        <th>Descripción</th>
-                        <th>Desarrollo</th>
-                        <th>Explotación</th>
-                        
-                        <th>Descriptción</th>
-                        <th>Desarrollo</th>
-                        <th>Explotación</th>
-                    </tr>
-                    <tr>
-                        <td class="texto">Creación de la base de Datos y del usuario. </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraCreaDBVGDWESLoginLogoffTema5.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-                        <td class="iconos" rowspan="2" > <a href="mostrarcodigo/muestraDBVGDWESLoginLogoffTema5.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-                        <td class="texto">Librería personal. </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraMiLibreriaStatic.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraMiLibreriaStatic.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-                    </tr>
 
-                    <tr>
-
-                        <td class="texto">Carga de la base de Datos. </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraCargaDBVGDWESLoginLogoffTema5.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-<!--                         <td class="iconos"> <a href="mostrarcodigo/muestraDBVGDWESLoginLogoffTema5.php"><i class="fa-solid fa-eye"></i> </a>  </td>-->
-                        <td class="texto">Fichero de configuración PDO. </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraconfDBPDODes.php"><i class="fa-solid fa-eye"></i> </a></td>
-                         <td class="iconos"> <a href="mostrarcodigo/muestraconfDBPDO.php"><i class="fa-solid fa-eye"></i> </a></td>
-                    </tr>
-                    <tr>
-                        <td class="texto">Borrado de la base de Datos. </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraBorraDBVGDWESLoginLogoffTema5.php"><i class="fa-solid fa-eye"></i> </a>  </td>
-                        <td class="texto"> </td>
-                        <td class="iconos"> <a href=""><!--<i class="fa-solid fa-eye"></i>--> </a>  </td>
-                    </tr>
-
-
-                </table>
-
-                <table>
-                    <tr>
-                        <th rowspan="2">Nº</th>
-                        <th rowspan="2">Enunciados</th>
-                        <th colspan="2">PDO</th>
-                    </tr>
-                    <tr>
-                        <th>Ejecutar</th>
-                        <th>Mostrar</th>
-                    </tr>
-                    <tr>
-                        <th>0</th>
-<!--                    <span class="span">text</span> -->
-                    <td class="texto">Desarrollo de una aplicación (Proyecto LoginLogoffTema5) con control de acceso e identificación
-del usuario basado en un formulario  </td>
-                    <td class="iconos"><a href="codigoPHP/ejercicio00.php"><!--<i class="fa-solid fa-circle-play"> </i>--> </a>  </td>
-                    <td class="iconos"> <a href="mostrarcodigo/muestraEjercicio00.php"> <!--<i class="fa-solid fa-eye"></i>--> </a>  </td>
-                   
-                    </tr>
-
-                    <tr>
-                        <th>1</th>
-                        <!-- <span class="span">text</span> -->
-
-                        <td class="texto"> </td>
-                        <td class="iconos"><a href="codigoPHP/ejercicio01.php"> <!--<i class="fa-solid fa-circle-play"> </i>--> </a>  </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraEjercicio01.php"> <!--<i class="fa-solid fa-eye"></i>--> </a>  </td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td class="texto"></td>
-                        <td class="iconos"><a href="codigoPHP/ejercicio02.php"> <!--<i class="fa-solid fa-circle-play"> </i>--></a>  </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraEjercicio02.php"> <!--<i class="fa-solid fa-eye"></i>--> </a>  </td>
-                    </tr>
-<!--                    <tr>
-                        <th>3</th>
-                        <td class="texto">Desarrollo de una aplicación (Proyecto LoginLogoffTema5) con control de acceso e identificación
-                            del usuario basado en un formulario (Login.php).</td>
-                        <td class="iconos"><a href="codigoPHP/ejercicio03.php"><i class="fa-solid fa-circle-play"></i></a>  </td>
-                        <td class="iconos"> <a href="mostrarcodigo/muestraEjercicio03.php"><i class="fa-solid fa-eye"></i></a>  </td>
-
-                    </tr>-->
-                   
-                </table>
             </section>
         </main>
         <footer class="footer">
@@ -110,7 +27,7 @@ del usuario basado en un formulario  </td>
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
                     </div>
                 <div><p class="copyright">
-                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="../index.html">Véronique Grué.</a> Fecha de Actualización :
+                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
                         <time datetime="2025-11-19"></time> 19-11-2025 </address>
 
                     

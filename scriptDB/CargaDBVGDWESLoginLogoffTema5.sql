@@ -34,5 +34,7 @@ INSERT INTO T_02Departamento (T02_CodDepartamento,T02_DescDepartamento,T02_Fecha
                  VALUES 
             ('INF','informática',now(),1285.50,NULL),
             ('LEN','Lengua',now(),2285.50,NULL),
-            ('MAT','Matemáticas',now(),3285.50,'2025-05-25');
+            ('MAT','Matemáticas',now(),3285.50,'2025-05-25'),
+            ('ING','Inglès',now(),2285.50,NULL),
+            ('FIS','Física',now(),2285.50,NULL);
 
