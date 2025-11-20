@@ -1,110 +1,284 @@
+:root{
+    --colorAzul:#1a73e8;
+    --colorAzulHover:#0E4EB5;
+    --colorAzulTranparente:rgba(26, 115, 232, 0.664);
+    --colorNegro:#202124;
+    --colorBlanco:#ffffff;
+    --colorClaro:#ededed;
+    --colorGris:#b4b4b4;
+    --colorRojo:#EA4335;
+    --colorAmarillo:#FBBC05;
+    --colorVerde:#34A853;
+    --colorAzul2:#4285F4;
+
+    --fuentePrincipal:Arial, Helvetica, sans-serif;
+}
 *{
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     border: none;
 }
-:root{
-    --bgColor:#f7f7f7;
-    --headerColor:#C0C0C0;
-    --secondColor:#eaeaea;
-    --textColor:#3f3844;
-    --mainColor:#e354f3;
-    --secondaryColor:#17b6f9;
-    --otherColor:#5d6c83;
-    --colorTabla:#8cb6f5;
-}
 html{
     height: 100%;
     margin: 0;
 }
-.header{
-    background-color: var(--headerColor);
-    margin: 0;
-    padding: 1rem;
-    color: blue;
-    display: flex;
-}
-
-h1{
-    width: 80%;
-    text-align: center;
-}
-h2{
-    text-align:  center;
-    padding: 1rem;
-    font-size: 48px;
-}
-header a{
-    font-size:20px;
-    font-weight: 700;
-    height: 30px;
-    background: #C0C0C0;
-    text-decoration: none;
-    color: blue;
-}
-header a:hover{
-    text-decoration: none;
-}
-
-
-
 body{
-    background-color: var(--secondColor);
-    margin: 0;
+    font-family: var(--fuentePrincipal);
+    /*    color: var(--colorAzul);*/
+    color:var(--colorNegro);
+    width:100vw;
     height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
-main{
-    width: 80%;
-    flex: 1;
-}
-section{
-    margin-top: 40px;
-}
-
-
-
-a {
-    text-decoration: none;
-    padding: 0 auto;
-
+/*section img{
+    float: right; /*para que los textos floten alrededor
+}*/
+header{
+    /*overflow: hidden;para controlar los elementos que están flotando*/
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
-.footer{
-    background-color: var(--secondColor);
-    padding:0 ;
-    margin: 0;
+header nav{
+    /*    margin-right: 30px;
+        padding: 10px 0;*/
+}
+.proyecto{
     text-align: center;
+    letter-spacing: -1px;
+}
+.proyecto span{
+    font-size: 16px;
+    font-weight: 800;
+}
+/*.azul{
+    color: var(--colorAzul2);
+}
+.rojo{
+    color:var(--colorRojo);
+}
+.verde{
+    color: var(--colorVerde);
+}
+.amarillo{
+    color: var(--colorAmarillo);
+}*/
+.letras span:nth-child(6n+1) {
+    color: var(--colorAzul2);
+}
+.letras span:nth-child(6n+2) {
+    color: var(--colorRojo) ;
+}
+.letras span:nth-child(6n+3) {
+    color: var(--colorAmarillo);
+}
+.letras span:nth-child(6n+4) {
+    color: var(--colorAzul2);
+}
+.letras span:nth-child(6n+5) {
+    color: var(--colorVerde);
+}
+.letras span:nth-child(6n+6) {
+    color: var(--colorRojo);
+}
+h1{
+    color:var(--colorAzul);
+}
+.titulo{
+    padding-top: 100px;
+    font-size: 48px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+nav button{
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.botonSession{
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 10px 30px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: var(--colorAzul);
+}
+.botonSession:hover{
+    /**/
+    color:white;
+    background-color: var(--colorAzulHover);
+    box-shadow: 0 0 10px var(--colorAzulTranparente);
+}
+.boton{
+    background-color: var(--colorBlanco);
+    --colorNegro:#202124;
+    font-size: 14px;
+}
+.boton:hover{
+    text-decoration:underline ;
+}
+/*Estilos contenido pricipal.. main*/
+main{
+    /*    width: 100vw;
+        height: 100%;
+        position: relative;*/
+    /*    inset: 0;es igual que poner top0, bottom0, left0,right0*/
+    /*    margin: auto;*/
+    text-align: center;
+    flex: 1;
+
+}
+
+
+
+/*Estilo de los botones*/
+.botones{
+    margin-top: 30px;
+}
+.botones form button{
+    all: unset;/*Así se quitan lo que los botones tengan por defecto*/
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--colorClaro);
+    cursor: pointer;/*Para que el cursor sea una mano*/
+    border-radius: 5px ;
+}
+/*Estilos del footer*/
+footer{
+    position: absolute;
     bottom: 0;
-    font-size: 18px;
-    background-color: var(--headerColor);
-    display: inline-flex;
+    left: 0;
+    background-color: var(--colorClaro);
+    width: 100%;
+    padding: 15px 0;
 }
-footer a{
-    font-size: 18px;
-    color: blue;
-    background-color: var(--headerColor)
-}
-address{
-    font-size: 15px;
+footer .pais{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--colorGris);
+    color: #202124;
+    display: flex;
+    justify-content: space-between;
 }
 .bxl-github{
-    font-size: 2.5rem;
+    font-size: 2rem;
     border-radius: 50%;
-    padding: .5rem;
-    margin-bottom: 1rem;
-    color: var(--textColor);
-    background-color: var(--mainColor);  
+    margin-right: 38px;
+    color: var(--colorClaro);
+    background-color: var(--colorAzul);
 }
-.social-media{
-    width: 30px;
+.footerInfo{
+    padding: 0 20px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+}
+.info{
+    width: 95%;
+}
+.google{
+    width: 5%;
+    font-size: 1.7rem;
+    padding-top: 5px;
+
+}
+
+/*Formulario*/
+.imagen{
+    width: 40%;
+    position: absolute;
+}
+img{
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: 0;
+}
+main{
+    background-color: #F0F4F9;
+    justify-items: center;
+}
+fieldset{
+    border:solid red;
+    padding: 0;
+    
+}
+.formulario{
+    
+    width: 80%;
+    height: 400px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    margin-top: 10px;
+  
+}
+label{
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 170px;
+}
+input {
+    height : 35px;
+    margin-bottom: 20px;
+    width: 300px;
+    display: inline-block;
+    padding-left: 5px;
+    border: 2px var(--colorAzul) solid ;
 }
 
 button{
-   margin: 10px;
+ all: unset;/*Así se quitan lo que los botones tengan por defecto*/
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--colorClaro);
+    cursor: pointer;/*Para que el cursor sea una mano*/
+    border-radius: 5px ;
 }
+/*section{
+    margin-top: 10px;
+    display: inline-block;
+    margin-bottom: 50px;
+}*/
+label#carnet{
+    display: inline-flex;
+}
+.form {
+    position: absolute;
+    padding-top:100px;
+      right: 250px;
+}
+input#carnet{
+    width: 100px;
+    height: 20px;
+}
+.preguntaSeguridad{
+    width: 400px;
+}
+#preg{
+    width: 200px;
+}
+#nombre, #preguntaSeguridad{
+    background-color:rgb(252, 248, 204);
+    font-weight: bold;
+}
+li{
+    font-size: 20px;
 
-
+}
+h3{
+    font-size: 25px;
+}
+#tipoFormulario{
+    background-color: gainsboro;
+}

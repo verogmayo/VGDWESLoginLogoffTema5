@@ -13,10 +13,6 @@ if (isset($_REQUEST["cerrar"])) {
     header("location: ../indexLoginLogoffTema5.php");
     exit;
 }
-if (isset($_REQUEST["detalle"])) {
-    header("location: detalle.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +24,7 @@ if (isset($_REQUEST["detalle"])) {
 
     </head>
     <body>
-        <header>
+        <header class="header">
             <div class="proyecto">
                 <p class="letras">
                     <span>L</span><span>O</span><span>G</span><span>I</span><span>N</span>
@@ -38,39 +34,37 @@ if (isset($_REQUEST["detalle"])) {
                     <span>T</span><span>E</span><span>M</span><span>A</span><span>5</span>
                 </p>
             </div>
-            <div>
-                <h1>INICIO PRIVADO</h1>
-            </div>
+            <h1>FORMULARIO</h1>
             <nav>
                 <form>
-                    
-                    <button class="botonSession" type="submit" name="cerrar" id="cerrar">Cerrar Sessión</button>
+                    <button class="botonSession" type="submit" name="cerrar" id="cerrar">Cerrar Sessión</button> 
                 </form>
-
             </nav>
-            
         </header>
         <main>
-            <section>
-                <div class="titulo">
-                    <p class="letras">
-                    <span>B</span><span>I</span><span>E</span><span>N</span><span>V</span><span>E</span><span>N</span><span>I</span><span>D</span><span>O</span>
-                    <span>&nbsp;</span><span>A</span><span>&nbsp;</span>
-                    <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
-                    <span>&nbsp;</span>
-                    <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
-                </p>
+            <section class="formulario">
+                <div class="imagen"><img src="../webroot/images/logo.png" alt="logo"/></div>
+                
+                <form class="form" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
-                </div> 
-                <div class="botones">
-                    <form>
-                    <button class="botonCentral" type="submit" name="detalle" id="detalle">Detalle</button>
-                </form>
-                </div>
+                                               
+                        <label for="usuario">Usuario:</label>
+<!--                        <a style='color:red'><?php echo $aErrores['nombre'] ?></a><br>-->
+                        <input  name="usuario" id="usuario" type="text" value='<?php echo(empty($aErrores['nombre'])) ? ($_REQUEST['nombre'] ?? '') : ''; ?> '><br>
+                                            
 
+                        <label for="passwd" >Contraseña: </label>
+<!--                        <a style='color:red'><?php echo $aErrores['preguntaSeguridad'] ?></a><br>-->
+                        <input name="passwd" id="passwd" type="password" value='<?php echo(empty($aErrores['preguntaSeguridad'])) ? ($_REQUEST['preguntaSeguridad'] ?? '') : ''; ?>'><br>
+
+                        <button class="botonSession" type="submit" name="enviar">Enviar</button>
+                        <button class="botonCentral" type="submit" name="volver" id="volver">volver</button>
+                    </form>  
+                    
             </section>
         </main>
-        <footer >
+
+       <footer >
             <div class="footer">
                 <div class="pais">
                     <p>España</p>
@@ -90,6 +84,7 @@ if (isset($_REQUEST["detalle"])) {
                 </div>
             </div>
         </footer>
+
     </body>
 </html>
 

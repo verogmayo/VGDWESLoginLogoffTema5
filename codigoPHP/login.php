@@ -14,7 +14,8 @@ if (isset($_REQUEST["volver"])) {
     exit;
 }
 if (isset($_REQUEST["iniciar"])) {
-    header("location: inicio.php");
+//    header("location: inicio.php");
+    header("location: formulario.php");
     exit;
 }
 ?>
@@ -28,36 +29,66 @@ if (isset($_REQUEST["iniciar"])) {
 
     </head>
     <body>
-        <header class="header">
-            <p>LOGIN LOGOFF TEMA 5</p>
-            <h1>LOGIN</h1>
-            <form>
-                <button type="submit" name="volver" id="volver">volver</button><br>
-
-            </form>
-        </header>
-        <main>
-            <section>
-                <h2>BIENVENIDO A LOGIN</h2>
+        <header>
+            <div class="proyecto">
+                <p class="letras">
+                    <span>L</span><span>O</span><span>G</span><span>I</span><span>N</span>
+                    <span>&nbsp;</span>
+                    <span>L</span><span>O</span><span>G</span><span>O</span><span>F</span><span>F</span>
+                    <br>
+                    <span>T</span><span>E</span><span>M</span><span>A</span><span>5</span>
+                </p>
+            </div>
+            <div>
+                <h1>LOGIN</h1>
+            </div>
+            <nav>
                 <form>
-
-                    <button type="submit" name="iniciar" id="iniciar">Iniciar Sessión</button><br>
-                    <button type="submit" name="registrar" id="registrar">Registrarse</button><br>
+                    <button class="botonSession" type="submit" name="volver" id="volver">volver</button>
+                    
 
                 </form>
 
+            </nav>
+            </header>
+        <main>
+            <section>
+                <div class="titulo">
+                    <p class="letras">
+                        <span>B</span><span>I</span><span>E</span><span>N</span><span>V</span><span>E</span><span>N</span><span>I</span><span>D</span><span>O</span>
+                        <span>&nbsp;</span><span>A</span><span>&nbsp;</span>
+                        <span>L</span><span>O</span><span>G</span><span>I</span><span>N</span>
+                    </p>
+                </div> 
+                <div class="botones">
+                    <form>
+                    <button class="botonCentral" type="submit" name="iniciar" id="iniciar">Iniciar Sessión</button>
+                    <button class="botonCentral" type="submit" name="registrar" id="registrar">Registrarse</button>
+                </form>
+                </div>
+                 
             </section>
         </main>
 
-        <footer class="footer">
-            <div class="footerContent">
-                <div><p class="copyright">
-                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="../../VGDWESProyectoDWES/indexProyectoDWES.html">Véronique Grué.</a> Fecha de Actualización :
-                        <time datetime="2025-11-20"></time> 20-11-2025 </address>
+       <footer >
+            <div class="footer">
+                <div class="pais">
+                    <p>España</p>
+                    <div class="social-media">
+                        <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
+                    </div>
                 </div>
-
+                <div class="footerInfo">
+                    <div class="info">
+                        <p >
+                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
+                        <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                    </div> 
+                    <div class="google">
+                        <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
+                    </div>
+                </div>
             </div>
-
         </footer>
 
     </body>
