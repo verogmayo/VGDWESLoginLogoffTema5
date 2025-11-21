@@ -43,28 +43,32 @@ if (isset($_REQUEST["cerrar"])) {
         </header>
         <main class="mainForm">
             <section class="formulario">
-                <div class="imagen"><img src="../webroot/images/logo.png" alt="logo"/></div>
-                
+                <div class="imagen"><img src="../webroot/images/logo.png" alt="logo"/>
+                    <p class="pInicioSession"> Inicia Sessión en Login Logoff Tema5</p>
+                </div>
+
                 <form class="form" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
-                                               
-                        <label for="usuario">Usuario:</label>
-<!--                        <a style='color:red'><?php echo $aErrores['nombre'] ?></a><br>-->
-                        <input  name="usuario" id="usuario" type="text" value='<?php echo(empty($aErrores['nombre'])) ? ($_REQUEST['nombre'] ?? '') : ''; ?> '><br>
-                                            
+                    <!--                        <label for="usuario">Usuario:</label>-->
+                    <!--                        <a style='color:red'><?php echo $aErrores['nombre'] ?></a><br>-->
+                    <input  name="usuario" id="usuario" type="text" placeholder="Usuario" value='<?php echo(empty($aErrores['nombre'])) ? ($_REQUEST['nombre'] ?? '') : ''; ?>'><br>
 
-                        <label for="passwd" >Contraseña: </label>
-<!--                        <a style='color:red'><?php echo $aErrores['preguntaSeguridad'] ?></a><br>-->
-                        <input name="passwd" id="passwd" type="password" value='<?php echo(empty($aErrores['preguntaSeguridad'])) ? ($_REQUEST['preguntaSeguridad'] ?? '') : ''; ?>'><br>
 
-                        <button class="botonSession" type="submit" name="enviar">Enviar</button>
-                        <button class="botonCentral" type="submit" name="volver" id="volver">volver</button>
-                    </form>  
+                    <!--                        <label for="passwd" >Contraseña: </label>-->
+                    <!--                        <a style='color:red'><?php echo $aErrores['preguntaSeguridad'] ?></a><br>-->
+                    <input name="passwd" id="passwd" type="password" placeholder="Contraseña" value='<?php echo(empty($aErrores['preguntaSeguridad'])) ? ($_REQUEST['preguntaSeguridad'] ?? '') : ''; ?>'><br>
                     
+                    <div class="divBotones">
+                         <button class="botonAzul" type="submit" name="volver" id="volver">Volver</button>
+                    <button class="botonSession" type="submit" name="enviar">Enviar</button>
+
+                    </div>
+                   
+                </form>         
             </section>
         </main>
 
-       <footer >
+        <footer >
             <div class="footer">
                 <div class="pais">
                     <p>España</p>
@@ -75,8 +79,8 @@ if (isset($_REQUEST["cerrar"])) {
                 <div class="footerInfo">
                     <div class="info">
                         <p >
-                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                        <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
+                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
                     </div> 
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>

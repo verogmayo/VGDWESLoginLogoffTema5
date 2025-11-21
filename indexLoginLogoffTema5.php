@@ -23,7 +23,6 @@ if (isset($_REQUEST["login"])) {
         <!--https://cdnjs.com/libraries/font-awesome --> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     </head>
-
     <body>
         <header>
             <div class="proyecto">
@@ -63,28 +62,23 @@ if (isset($_REQUEST["login"])) {
         <footer >
             <div class="footer">
                 <div class="pais">
-                    <p>España</p>
+                    <p><a href="codigoPHP/formulario.php">España</a>
+                        </p>
                     <div class="social-media">
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
                     </div>
                 </div>
-
                 <div class="footerInfo">
                     <div class="info">
                         <p >
                         2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
                         <time datetime="2025-11-19"></time> 19-11-2025 </address>
                     </div>
-                    
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
                     </div>
-
                 </div>
-
             </div>
-
         </footer>
-
     </body>
 </html>
