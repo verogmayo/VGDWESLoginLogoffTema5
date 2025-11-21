@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS DBVGDWESLoginLogoffTema5;
+DROP USER 'userVGDWESLoginLogoffTema5'@'%';

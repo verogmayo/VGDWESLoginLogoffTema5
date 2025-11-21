@@ -1,0 +1,283 @@
+:root{
+    --colorAzul:#1a73e8;
+    --colorNegro:#202124;
+    --colorBlanco:#ffffff;
+    --colorClaro:#ededed;
+    --colorGris:#b4b4b4;
+
+    --fuentePrincipal:Arial, Helvetica, sans-serif;
+}
+body{
+    font-family: var(--fuentePrincipal);
+    color: var(--colorAzul);
+    width:100vw;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+/*section img{
+    float: right; /*para que los textos floten alrededor
+}*/
+header{
+    overflow: hidden;/*para controlar los elementos que están flotando*/
+}
+
+header nav{
+    float: right;
+    margin-right: 30px;
+    padding: 10px 0;
+
+}
+.balu{
+    color: var(--colorBalu);
+}
+.balu2{
+    color: rgb(62, 141, 125);
+}
+nav a{
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 13px;
+    vertical-align: middle;
+
+}
+nav .nav-link{
+    color: var(--colorNegro);
+}
+nav .nav-link:hover{
+    text-decoration: underline;
+}
+nav .nav-apps{
+    padding: 5px;
+    border-radius: 50%;
+}
+nav .nav-apps:hover{
+    background-color: var(--colorClaro);
+}
+nav .nav-apps img{
+    display: inline-block;
+    vertical-align: middle;
+}
+nav .nav-login{
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 100px;
+}
+nav .nav-login:hover{
+    /**/
+    box-shadow: 0 0 3px var(--colorAzul);
+}
+/*Estilos contenido pricipal.. main*/
+main{
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    inset: 0;/*es igual que poner top0, bottom0, left0,right0*/
+    margin: auto;
+   text-align: center;
+   
+}
+.buscador-bar .label-buscador{
+    display: block;
+    border: 1px solid var(--colorGris);
+    padding: 10px 15px;
+    border-radius: 100px;
+    width: 584px;
+    overflow-y: hidden;
+}
+.buscador-bar .label-buscador:hover{
+    box-shadow: 0 0 3px var(--colorGris);
+}
+.buscador-bar .label-buscador img{
+    vertical-align: middle;
+}
+.label-buscador .icon-buscar ,
+.label-buscador input{
+float: left;
+margin-right: 10px;
+vertical-align: middle;
+}
+
+.label-buscador div{
+    float: right;/*para que el div esté en la parte derecha*/
+}
+.label-buscador div a{
+    display: inline-block;
+}
+.label-buscador input{
+    font-size: 16px;
+    width: 80%;
+    border: none
+}
+.label-buscador input:focus{
+    outline: none;
+}
+
+/*Estilo de los botones*/
+.botones{
+    margin-top: 30px;
+}
+.botones button{
+    all: unset;/*Así se quitan lo que los botones tengan por defecto*/
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: var(--colorClaro);
+    cursor: pointer;/*Para que el cursor sea una mano*/
+    border-radius: 5px ;
+}
+/*Estilos del footer*/
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--colorClaro);
+    width: 100%;
+    padding: 15px 0;
+}
+footer .pais{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--colorGris);
+    color: #202124;
+}
+.footer-links{
+    padding: 0 20px;
+    overflow: hidden;
+}
+.footer-links ul{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+.footer-links ul:first-child{
+    float: left;
+    
+}
+.footer-links ul:last-child{
+    float: right;
+    
+}
+.footer-links ul li{
+    display: inline;
+    margin-right: 20px;
+}
+.footer-links ul a{
+text-decoration: none;
+color: var(--colorNegro);
+font-size: 14px;
+}
+.footer-links ul a:hover{
+    text-decoration: underline;
+}
+/*section p{
+    width: 150px;
+    height: 150px ;
+    background-color: aqua;
+    padding: 5px;
+    /*El ancho y el alto de p no permiten ver todo el contenido del texto dentro del p y desborda*/
+    /*overflow: scroll; para que aparezca un scroll para poder ver todo */
+    /*overflow: hidden; para que esconda lo que no entra en el recuadro
+    overflow: visible; para se vea todo
+    overflow: auto ; sale el scroll por defecto del navegador---- Este es el mejor
+    overflow: auto;
+    
+    /*para que salgan los 3 puntos y una sola linea
+    overflow: hidden;
+    text-overflow: ellipsis; para que aparezcan tres puntitos
+    white-space: nowrap; se ve la primera linea y los 3 puntos
+    writing-mode: horizontal-tb;para poner el texto en vertical o horizontal, por ejemplo para escribir chino...
+}*/
+/*.seccion{
+    width: 300px;
+    height: 300px ;
+    background-color: #1a73e8;
+    position: relative;para que sea relativo al contededor
+    border: goldenrod solid 5px;
+    
+}
+.seccion div{
+    width: 50px;
+    height: 50px;
+    background-color: #202124;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 0;
+}
+.seccion div:first-child{
+    background-color: yellow;
+    width: 70px;
+    height: 70px;
+    z-index: 100;
+}
+.seccion div:nth-child(2){
+    background-color: purple;
+    width: 60px;
+    height: 60px;
+    z-index: 200;
+}*/
+/*.seccion div{
+    width: 50px;
+    height: 50px;
+    background-color: #202124;
+    
+    margin-bottom: 10px;
+    /*posicionar en relacion al contenedor*
+    position: static;
+}*/
+/*.seccion div{
+    width: 50px;
+    height: 50px;
+    background-color: #202124;
+    
+    margin-bottom: 10px;
+    /*posicionar fijo en relacion al contendor
+    position: sticky;
+    top: 0;
+}*/
+/*
+.seccion div:nth-child(2){
+    background-color: gray;
+    /*posicionar en relacion a la ventana
+    position: absolute;
+    top: 0;
+    left: 0;
+}*/
+/*.seccion div:first-child{
+     /*posicionar en relacion al contenedor
+    position: absolute;
+    background-color: red;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0;
+}*/
+/*.seccion div:first-child{
+     /*posicionar fijo en relacion con la ventana
+    position: fixed;
+    background-color: red;
+    top: 0;
+    right: 0;
+    margin-bottom: 0;
+}*/
+
+/*.seccion div:nth-child(3){
+    background-color: red;
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+
+    
+}*/
+/*.seccion div:nth-child(2){
+    background-color: gray;
+    /*posicionar en relacion a la ventana
+    position: relative;
+    height: 60px;
+    width: 60px;
+    top: 0;
+    left: 0;
+}*/
