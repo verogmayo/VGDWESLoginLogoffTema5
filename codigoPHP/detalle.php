@@ -57,7 +57,7 @@ if (isset($_REQUEST["cerrar"])) {
        <footer >
             <div class="footer">
                 <div class="pais">
-                    <p>España</p>
+                    
                     <div class="social-media">
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
                     </div>

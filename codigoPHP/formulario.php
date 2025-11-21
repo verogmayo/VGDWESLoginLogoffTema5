@@ -41,7 +41,7 @@ if (isset($_REQUEST["cerrar"])) {
                 </form>
             </nav>
         </header>
-        <main>
+        <main class="mainForm">
             <section class="formulario">
                 <div class="imagen"><img src="../webroot/images/logo.png" alt="logo"/></div>
                 

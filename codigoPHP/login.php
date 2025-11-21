@@ -14,8 +14,8 @@ if (isset($_REQUEST["volver"])) {
     exit;
 }
 if (isset($_REQUEST["iniciar"])) {
-//    header("location: inicio.php");
-    header("location: formulario.php");
+    header("location: inicio.php");
+//    header("location: formulario.php");
     exit;
 }
 ?>
@@ -73,7 +73,7 @@ if (isset($_REQUEST["iniciar"])) {
        <footer >
             <div class="footer">
                 <div class="pais">
-                    <p>España</p>
+                    
                     <div class="social-media">
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
                     </div>
