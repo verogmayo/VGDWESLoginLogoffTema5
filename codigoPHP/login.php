@@ -14,8 +14,8 @@ if (isset($_REQUEST["volver"])) {
     exit;
 }
 if (isset($_REQUEST["iniciar"])) {
-    header("location: inicio.php");
-//    header("location: formulario.php");
+ //   header("location: inicio.php");
+    header("location: formulario.php");
     exit;
 }
 ?>

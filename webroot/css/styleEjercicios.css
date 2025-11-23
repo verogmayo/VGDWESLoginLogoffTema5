@@ -10,7 +10,9 @@
     --colorAmarillo:#FBBC05;
     --colorVerde:#34A853;
     --colorAzul2:#4285F4;
-
+    --colorCampoObligatorio:rgb(252, 248, 204);
+    --colorCampoRestringido:gainsboro;
+    
     --fuentePrincipal:Arial, Helvetica, sans-serif;
 }
 *{
@@ -128,6 +130,7 @@ nav button{
     font-weight: 600;
     color: var(--colorAzul);
     background: white;
+    padding: 0 20px;
 }
 .boton:hover{
     text-decoration:underline ;
@@ -161,6 +164,7 @@ main{
 .divBotones{
     display: flex;
     justify-content: end;
+    padding-right: 30px;
 }
 
 
@@ -220,14 +224,11 @@ img{
     width: 100px;
 }
 .mainForm{
+    display: grid;
     background-color: #F0F4F9;
-    justify-items: center;
+    justify-items:   center;
 }
-fieldset{
-    border:solid red;
-    padding: 0;
-    
-}
+
 .formulario{
     width: 70%;
     height: 400px;
@@ -237,33 +238,44 @@ fieldset{
     margin-top: 10px;
 }
 .form {
-    padding-top:100px;
+    padding-top:75px;
     right: 250px;
     width: 50%;  
 }
 label{
-    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    transition: 0.2s ease;
+    pointer-events: none;
+    background: transparent;
+    padding: 0 4px;
+    font-size: 16px;
     margin-bottom: 10px;
+/*    text-align: start;*/
     display: inline-block;
-    width: 170px;
+    width: auto;  
+    color:#999;
 }
 input {
     height : 60px;
-    margin-bottom: 20px;
     width: 75%;
-    display: inline-block;
-    padding-left: 10px;
+    display: block;
+    padding: 0 10px;
     margin-bottom: 1.6rem;
     border: 1px solid ;
     border-radius: 5px;
+    outline: none;
 }
-::placeholder{
-    font-size: 16px;
+#usuario, #passwd{
+    background-color: var(--colorCampoObligatorio);
 }
-input:hover{
-    border: 1px solid blue;
+#usuario:not(:placeholder-shown), 
+#passwd:not(:placeholder-shown) {
+    background-color: white;
+    border-color: var(--colorAzul2);
+    box-shadow: 0 0 0 .5px blue;
 }
-
 button{
  all: unset;/*Así se quitan lo que los botones tengan por defecto*/
     padding: 10px 20px;
@@ -271,38 +283,28 @@ button{
     background-color: var(--colorClaro);
     cursor: pointer;/*Para que el cursor sea una mano*/
     border-radius: 5px ;
-    margin-top: 50px;
+    margin-top: 20px;
 }
-/*section{
-    margin-top: 10px;
-    display: inline-block;
-    margin-bottom: 50px;
-}*/
-label#carnet{
-    display: inline-flex;
+.contenedorInput{
+    position: relative;
+/*    margin: 10px 0;*/
+}
+input:focus + label, input:not(:placeholder-shown) + label {
+  top: 10px;
+  left: 8px;
+  font-size: 12px;
+  color: var(--colorAzur2);
+  transform: translateY(0);
+  background: white;
 }
 
-input#carnet{
-    width: 100px;
-    height: 20px;
+input:focus{
+    border-color: var(--colorAzul2);
+    box-shadow: 0 0 0 .5px blue;
 }
-.preguntaSeguridad{
-    width: 400px;
+#usuario:focus, #passwd:focus{
+    background-color: white;
+    border-color: var(--colorAzul2);
+    box-shadow: 0 0 0 .5px blue;
 }
-#preg{
-    width: 200px;
-}
-#nombre, #preguntaSeguridad{
-    background-color:rgb(252, 248, 204);
-    font-weight: bold;
-}
-li{
-    font-size: 20px;
 
-}
-h3{
-    font-size: 25px;
-}
-#tipoFormulario{
-    background-color: gainsboro;
-}

@@ -1,6 +1,6 @@
 <?php
-    define('DNS', 'mysql:host=localhost;dbname=DBVGDWESProyectoTema5');
-    define('USUARIODB', 'userVGDWESProyectoTema5');
-    define('PSWD', 'pasoDWES4');
+    define('DNS', 'mysql:host=localhost;dbname=DBVGDWESLoginLogoffTema5');
+    define('USUARIODB', 'userVGDWESLoginLogoffTema5');
+    define('PSWD', 'pasoDWES5');
 ?>
 
