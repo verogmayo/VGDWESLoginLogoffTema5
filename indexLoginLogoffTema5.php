@@ -9,6 +9,18 @@ if (isset($_REQUEST["login"])) {
     header("location: codigoPHP/login.php");
     exit;
 }
+if (isset($_REQUEST["es"])) {
+   setcookie("idioma", "es", time()+3600);
+}
+if (isset($_REQUEST["fr"])) {
+   setcookie("idioma", "fr", time()+3600);
+}
+if (isset($_REQUEST("en"))) {
+   setcookie("idioma", "en", time()+3600);
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,8 +50,13 @@ if (isset($_REQUEST["login"])) {
                 <h1>INICIO PUBLICO</h1>
             </div>
             <nav>
-                <form>
+                
+                <form method="post">
+                      <button class="idioma" type="submit" name="es" id="es"> <img src="webroot/images/banderaEs.png" width="15px" height="height" alt="alt"/> </button>
+                      <button class="idioma" type="submit" name="en" id="en"> <img src="webroot/images/banderaGb.png" width="15px" height="height" alt="alt"/> </button>	
+                    <button class="idioma" type="submit" name="fr" id="fr"> <img src="webroot/images/banderaFr.png" width="15px" height="height" alt="alt"/> </button>    
                     <button class="botonSession" type="submit" name="login" id="login">login</button>
+                    
                 </form>
                 <!--<a href="" class="nav-login">Iniciar Session</a>-->
             </nav>

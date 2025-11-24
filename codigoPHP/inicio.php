@@ -17,6 +17,7 @@ if (isset($_REQUEST["detalle"])) {
     header("location: detalle.php");
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
