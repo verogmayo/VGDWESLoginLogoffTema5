@@ -5,10 +5,7 @@
          * 
          * Ejercicio 1: Desarrollo de un control de acceso con identificación del usuario basado en la función header().
          */
-        /**
-         * @var array<string, string> $aUsuarios Array asociativo con los usuarios válidos, sus contraseñas nombres completos.
-         * La clave es el nombre de usuario y el valor es la contraseña y el nombre.
-         */
+        
         if (isset($_REQUEST["cerrar"])){
             header("location: ../indexLoginLogoffTema5.php");
             exit;

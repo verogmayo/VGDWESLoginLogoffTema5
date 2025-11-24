@@ -3,12 +3,14 @@
  * @author: Véronique Grué
  * @since 15/11/2025
  * 
- * Ejercicio 1: Desarrollo de un control de acceso con identificación del usuario basado en la función header().
+ * 
  */
-/**
- * @var array<string, string> $aUsuarios Array asociativo con los usuarios válidos, sus contraseñas nombres completos.
- * La clave es el nombre de usuario y el valor es la contraseña y el nombre.
- */
+
+session_start();
+if (!isset($_SESSION["usuario"])) {
+header("location: ../indexLoginLogoffTema5.php"); 
+exit;
+}
 if (isset($_REQUEST["cerrar"])) {
     header("location: ../indexLoginLogoffTema5.php");
     exit;
@@ -39,8 +41,12 @@ if (isset($_REQUEST["detalle"])) {
                     <span>T</span><span>E</span><span>M</span><span>A</span><span>5</span>
                 </p>
             </div>
-            <div>
-                <h1>INICIO PRIVADO</h1>
+            <div class="tituloCentral">
+                <p class="letras">
+                    <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
+                    <span>&nbsp;</span>
+                    <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
+                </p>
             </div>
             <nav>
                 <form>
@@ -53,14 +59,16 @@ if (isset($_REQUEST["detalle"])) {
         </header>
         <main>
             <section>
-                <div class="titulo">
-                    <p class="letras">
-                    <span>B</span><span>I</span><span>E</span><span>N</span><span>V</span><span>E</span><span>N</span><span>I</span><span>D</span><span>O</span>
-                    <span>&nbsp;</span><span>A</span><span>&nbsp;</span>
-                    <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
-                    <span>&nbsp;</span>
-                    <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
-                </p>
+                <div class="titulo2">
+                     <?php if($_COOKIE["idioma"]==="es"){
+                        echo "<h2>BIENVENIDO A TU AREA PRIVADA</h2>";
+                     }
+                        elseif($_COOKIE["idioma"]==="en"){
+                        echo "<h2>WELCOME TO YOUR PRIVATE AREA </h2>";
+                        }
+                        elseif($_COOKIE["idioma"]==="fr"){
+                        echo "<h2>BIENVENUE A TON ESPACE PRIVÉ</h2>";
+                        }?>
 
                 </div> 
                 <div class="botones">
@@ -68,7 +76,10 @@ if (isset($_REQUEST["detalle"])) {
                     <button class="botonCentral" type="submit" name="detalle" id="detalle">Detalle</button>
                 </form>
                 </div>
-
+                
+                  
+               
+                
             </section>
         </main>
         <footer >

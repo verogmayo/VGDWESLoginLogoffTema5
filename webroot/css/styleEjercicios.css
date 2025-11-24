@@ -12,7 +12,7 @@
     --colorAzul2:#4285F4;
     --colorCampoObligatorio:rgb(252, 248, 204);
     --colorCampoRestringido:gainsboro;
-    
+
     --fuentePrincipal:Arial, Helvetica, sans-serif;
 }
 *{
@@ -30,10 +30,11 @@ body{
     font-family: var(--fuentePrincipal);
     /*    color: var(--colorAzul);*/
     color:var(--colorNegro);
-    width:100vw;
+    width:100%;
     height: 100%;
     margin: 0;
     display: flex;
+    flex: 1;
     flex-direction: column;
 }
 /*section img{
@@ -99,6 +100,17 @@ h1{
     letter-spacing: -1px;
     font-weight: 700;
 }
+.titulo2{
+    padding-top: 100px;
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+.tituloCentral{
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
 nav button{
     text-decoration: none;
     display: inline-block;
@@ -135,6 +147,7 @@ nav button{
 .boton:hover{
     text-decoration:underline ;
 }
+
 /*Estilos contenido pricipal.. main*/
 main{
     /*    width: 100vw;
@@ -146,6 +159,53 @@ main{
     flex: 1;
 
 }
+/*Estilos para las variables superGlobales*/
+section{
+    justify-content:  center;
+    
+}
+.articleSG{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.tableSG {
+    border-collapse: collapse;
+    width: 80%;
+    border: 2px solid black;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    
+}
+th, td {
+    border: 1px solid black;
+    padding-left: 8px;
+    text-align: start;
+
+
+}
+th {
+    background-color: #9999cc;
+    padding: 8px;
+    text-align: center;
+
+}
+td:nth-child(even) {
+    /*seleciona los elemenos pares*/
+    background-color: #DDDDDD;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right:50px;
+}
+td:nth-child(odd) {
+    /*seleciona los elemenos impares*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+}
+
 
 
 
@@ -171,16 +231,13 @@ main{
 
 /*Estilos del footer*/
 footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     background-color: var(--colorClaro);
     width: 100%;
-    padding: 15px 0;
+    padding-bottom: 5px;
 }
 footer .pais{
-    padding-left: 20px;
-    padding-bottom: 10px;
+  
     border-bottom: 1px solid var(--colorGris);
     color: #202124;
     display: flex;
@@ -211,9 +268,9 @@ footer .pais{
 
 /*Formulario*/
 .imagen{
-    width: 50%;   
+    width: 50%;
     padding: 5%;
-    
+
 }
 .pInicioSession{
     top: 50%;
@@ -240,7 +297,7 @@ img{
 .form {
     padding-top:75px;
     right: 250px;
-    width: 50%;  
+    width: 50%;
 }
 label{
     position: absolute;
@@ -252,9 +309,9 @@ label{
     padding: 0 4px;
     font-size: 16px;
     margin-bottom: 10px;
-/*    text-align: start;*/
+    /*    text-align: start;*/
     display: inline-block;
-    width: auto;  
+    width: auto;
     color:#999;
 }
 input {
@@ -270,14 +327,14 @@ input {
 #usuario, #passwd{
     background-color: var(--colorCampoObligatorio);
 }
-#usuario:not(:placeholder-shown), 
+#usuario:not(:placeholder-shown),
 #passwd:not(:placeholder-shown) {
     background-color: white;
     border-color: var(--colorAzul2);
     box-shadow: 0 0 0 .5px blue;
 }
 button{
- all: unset;/*Así se quitan lo que los botones tengan por defecto*/
+    all: unset;/*Así se quitan lo que los botones tengan por defecto*/
     padding: 10px 20px;
     font-size: 14px;
     background-color: var(--colorClaro);
@@ -287,15 +344,15 @@ button{
 }
 .contenedorInput{
     position: relative;
-/*    margin: 10px 0;*/
+    /*    margin: 10px 0;*/
 }
 input:focus + label, input:not(:placeholder-shown) + label {
-  top: 10px;
-  left: 8px;
-  font-size: 12px;
-  color: var(--colorAzur2);
-  transform: translateY(0);
-  background: white;
+    top: 10px;
+    left: 8px;
+    font-size: 12px;
+    color: var(--colorAzur2);
+    transform: translateY(0);
+    background: white;
 }
 
 input:focus{
