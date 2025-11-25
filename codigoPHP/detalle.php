@@ -14,6 +14,10 @@ if (isset($_REQUEST["volver"])) {
     header("location: inicio.php");
     exit;
 }
+if (isset($_REQUEST["cerrar"])) {
+    header("location: ../indexLoginLogoffTema5.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
