@@ -7,6 +7,42 @@
  */
 
 
+// Solo fecha completa
+$fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+// Salida: "martes, 26 de noviembre de 2025"
+
+// Fecha y hora
+$fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::SHORT);
+// Salida: "26 de noviembre de 2025, 14:30"
+
+// Solo hora
+$fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::NONE, IntlDateFormatter::MEDIUM);
+// Salida: "14:30:45"
+
+
+
+
+
+$fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+$fmt->setPattern('EEEE j \d\e MMMM \d\e Y');
+echo $fmt->format($dateTimeBD); // "martes 26 de noviembre de 2025"
+
+
+// Opción 1: Todo en una sola línea
+$fecha = $dateTimeBD->format('l j \d\e F \d\e Y');
+// Resultado: "Tuesday 26 de November de 2025"
+
+// Opción 2: Separado como mencionas
+$dia = $dateTimeBD->format('j');     // día sin cero inicial
+$mes = $dateTimeBD->format('F');     // mes completo en inglés
+$anio = $dateTimeBD->format('Y');    // año con 4 dígitos
+$fecha = "$dia de $mes de $anio";
+
+
+
+
+
+
 exit;
 ?>
 <!DOCTYPE html>
