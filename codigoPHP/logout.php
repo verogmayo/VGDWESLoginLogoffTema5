@@ -6,9 +6,7 @@
  * 
  */
 
-session_start();
-session_destroy();
-header("location: ../indexLoginLogoffTema5.php");
+
 exit;
 ?>
 <!DOCTYPE html>

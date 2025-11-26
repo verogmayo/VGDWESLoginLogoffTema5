@@ -97,12 +97,16 @@ if ($entradaOK) {
                             SQL;
             $consulta2 = $miDB->prepare($actualizacion);
             $consulta2->execute([':usuario' => $_REQUEST['usuario']]);
-            
-            //Se guardan estos datos en la session
-            $_SESSION['usuario'] = $usuarioBD['T01_CodUsuario'];
-            $_SESSION['descripcion'] = $usuarioBD['T01_DescUsuario'];
-            $_SESSION['ultimaConexion'] = $usuarioBD['T01_FechaHoraUltimaConexion'];
-            $_SESSION['numConexiones'] = $usuarioBD['T01_NumConexiones'];
+
+            //Se recogen estos datos de la sesión en un array $aDatosSession
+            $aDatosSesion = [
+            'usuario' => $usuarioBD['T01_CodUsuario'],
+            'descripcion' => $usuarioBD['T01_DescUsuario'],
+            'ultimaConexion' => $usuarioBD['T01_FechaHoraUltimaConexion'],
+            'numConexiones' => $usuarioBD['T01_NumConexiones']
+            ];
+            //y se guardan en un array en lka sesión
+            $_SESSION['sesion']=$aDatosSesion;
             //y  se abre inicio.php
             header("Location: inicio.php");
             exit;
