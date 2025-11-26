@@ -7,15 +7,16 @@
  */
 session_start();
 if (!isset($_SESSION["usuario"])) {
-header("location: ../indexLoginLogoffTema5.php");  
-exit;
+    header("location: ../indexLoginLogoffTema5.php");
+    exit;
 }
 if (isset($_REQUEST["volver"])) {
     header("location: inicio.php");
     exit;
 }
 if (isset($_REQUEST["cerrar"])) {
-    header("location: ../indexLoginLogoffTema5.php");
+    session_destroy();
+    header("location: login.php");
     exit;
 }
 ?>
@@ -48,19 +49,19 @@ if (isset($_REQUEST["cerrar"])) {
         </header>
         <main>
             <section>
-               
+
                 <div class="botones">
                     <form>
-                    <button class="botonCentral" type="submit" name="volver" id="volver">volver</button>
-                </form>
+                        <button class="botonCentral" type="submit" name="volver" id="volver">volver</button>
+                    </form>
                 </div>
-                 <div class="titulo">
-                   
+                <div class="titulo">
+
                 </div> 
-                  <?php
-                     echo '<h3>Contenido de la variable $_SERVER</h3><br>';
-                   echo' <article class="articleSG">';
-                   
+                <?php
+                echo '<h3>Contenido de la variable $_SERVER</h3><br>';
+                echo' <article class="articleSG">';
+
                 echo '<table class="tableSG" >';
                 echo '<tr><th>Variable</th><th>Valor</th></tr>';
                 if (!empty($_SERVER)) {
@@ -111,22 +112,23 @@ if (isset($_REQUEST["cerrar"])) {
                     echo "<tr><td colspan='2'><em>La variable \$_SESSION está vacía.</em></td></tr>";
                 }
                 echo "</table>";
-                echo' </article>';?>
-                
+                echo' </article>';
+                ?>
+
             </section>
         </main>
 
-       <footer >
+        <footer >
             <div class="footer">
                 <div class="pais">
-                    
-                   
+
+
                 </div>
                 <div class="footerInfo">
                     <div class="info">
                         <p >
-                        2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                        <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
+                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
                     </div> 
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
