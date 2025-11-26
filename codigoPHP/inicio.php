@@ -59,32 +59,45 @@ if (isset($_REQUEST["detalle"])) {
         <main>
             <section>
                 <div class="titulo2">
-            <?php
-            //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
-            //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
-            $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion']);
-            //para utilizar intl es mejor utilizar timestamp
-            $FechaHoraTimeStamp = $fechaHora->getTimestamp();
-            
-            $fecha = $fechaHora->format('d-m-Y');
-            $hora = $fechaHora->format('d-m-Y');
-            if ($_COOKIE["idioma"] === "es") {
-                echo "<h2>".$_SESSION['sesion']['descripcion']."</h2>";
-                echo " <h2>BIENVENIDO A TU AREA PRIVADA</h2>";
-                echo "Última conexión : el ".$fecha." a las ". $hora."<br>";
-                echo "Numero de conexiones: ".$_SESSION['sesion']['numConexiones'];
-            } elseif ($_COOKIE["idioma"] === "en") {
-                echo "<h2>".$_SESSION['sesion']['descripcion']."</h2>";
-                echo "<h2>WELCOME TO YOUR PRIVATE AREA </h2>";
-                echo "Last connection : on ".$fecha." at ".$hora ."<br>";
-                echo "Number of connections: ".$_SESSION['sesion']['numConexiones'];
-            } elseif ($_COOKIE["idioma"] === "fr") {
-                echo "<h2> ".$_SESSION['sesion']['descripcion']. "</h2>";
-                echo "<h2>BIENVENUE A TON ESPACE PRIVÉ</h2>";
-                echo "Dernière connexion : le ".$fecha." à ".$hora."<br>";
-                echo "Nombre de connexions: ".$_SESSION['sesion']['numConexiones'];
-            }
-            ?>
+                    <?php
+                    //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
+                    //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
+                    // Solo fecha completa
+//                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+//// Salida: "martes, 26 de noviembre de 2025"
+//// Fecha y hora
+////                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::SHORT);
+//// Salida: "26 de noviembre de 2025, 14:30"
+//// Solo hora
+//                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::NONE, IntlDateFormatter::MEDIUM);
+// Salida: "14:30:45"
+                    
+                    $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion']);
+                    //para utilizar intl es mejor utilizar timestamp
+                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                    $fmt->setPattern('EEEE j \d\e MMMM \d\e Y');
+                    echo $fmt->format($fechaHora);
+//                    $FechaHoraTimeStamp = $fechaHora->getTimestamp();
+
+                    $fecha = $fechaHora->format('d-m-Y');
+                    $hora = $fechaHora->format('d-m-Y');
+                    if ($_COOKIE["idioma"] === "es") {
+                        echo "<h2>" . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        echo " <h2>BIENVENIDO A TU AREA PRIVADA</h2>";
+                        echo "Última conexión : el " . $fecha . " a las " . $hora . "<br>";
+                        echo "Numero de conexiones: " . $_SESSION['sesion']['numConexiones'];
+                    } elseif ($_COOKIE["idioma"] === "en") {
+                        echo "<h2>" . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        echo "<h2>WELCOME TO YOUR PRIVATE AREA </h2>";
+                        echo "Last connection : on " . $fecha . " at " . $hora . "<br>";
+                        echo "Number of connections: " . $_SESSION['sesion']['numConexiones'];
+                    } elseif ($_COOKIE["idioma"] === "fr") {
+                        echo "<h2> " . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        echo "<h2>BIENVENUE A TON ESPACE PRIVÉ</h2>";
+                        echo "Dernière connexion : le " . $fecha . " à " . $hora . "<br>";
+                        echo "Nombre de connexions: " . $_SESSION['sesion']['numConexiones'];
+                    }
+                    ?>
 
                 </div> 
                 <div class="botones">
