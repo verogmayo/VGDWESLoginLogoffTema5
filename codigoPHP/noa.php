@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
-if (!isset($_SESSION["sesion"])) {
+if (!isset($_SESSION["usuarioVGDAWAppLoginLogoff"])) {
     header("location: ../indexLoginLogoffTema5.php");
     exit;
 }
@@ -111,7 +111,7 @@ if (isset($_REQUEST['enviar'])) {//se cumple si el boton es submit
         <main>
             <section class="sectionNoa">
                 <div class="tituloNoa">
-                    <h2>Coucou <?php echo $_SESSION['sesion']['descripcion'] ?></h2>
+                    <h2>Coucou <?php echo $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] ?></h2>
                 </div>  
                 <article class="articleNoa">
                     <div class="divTexte"></div>

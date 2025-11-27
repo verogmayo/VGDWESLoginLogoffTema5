@@ -1,20 +1,23 @@
 <?php
 /**
  * @author: Véronique Grué
- * @since 15/11/2025
+ * Ultima actualización : 27/11/2025
  * 
- * 
+ * Página de inicio de la parte privada
  */
 session_start();
-if (!isset($_SESSION["sesion"])) {
-    header("location: ../indexLoginLogoffTema5.php");
-    exit;
-}
-if (isset($_REQUEST["cerrar"])) {
-    session_destroy();
+//Si la session no se ha iniciado, reenvía a la pagina de inicio publico
+if (!isset($_SESSION["usuarioVGDAWAppLoginLogoff"])) {
     header("location: login.php");
     exit;
 }
+//Si el usuario hace clic en cerrar session, reenvía a la pagina de inicio publico
+if (isset($_REQUEST["cerrar"])) {
+    session_destroy();
+    header("location: ../indexLoginLogoffTema5.php");
+    exit;
+}
+// Redirección a la pagina de detalle cuando se hace clic en el bton
 if (isset($_REQUEST["detalle"])) {
     header("location: detalle.php");
     exit;
@@ -49,7 +52,8 @@ if (isset($_REQUEST["detalle"])) {
             </div>
             <nav>
                 <form>
-                    <!-- Botones de idiomas -->
+                    <!-- Botones de idiomas 
+                    Solo aparece el boton que corresponda a la cookie de idioma-->
                     <?php if ($_COOKIE["idioma"] === "es"){
                     echo '<button class="idioma selecionado" type="submit" name="es" id="es"> <img src="../webroot/images/banderaEs.png"  alt="es"/> </button>';
                     }
@@ -61,9 +65,7 @@ if (isset($_REQUEST["detalle"])) {
                     }?>
                     <button class="botonSession" type="submit" name="cerrar" id="cerrar">Cerrar Sessión</button>
                 </form>
-
             </nav>
-
         </header>
         <main>
             <section>
@@ -74,48 +76,48 @@ if (isset($_REQUEST["detalle"])) {
 
                     if ($_COOKIE["idioma"] === "es") {
                         //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
-                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/Madrid'));
+                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Madrid'));
                         $hora = $fechaHora->format('H:i');
                         //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
                         //se utiliza timestamp para que intl funcione mejor
                         $timestamp = $fechaHora->getTimestamp();
                         $formatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
-                        echo " <h2>BIENVENIDO " . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                        echo " <h2>BIENVENIDO " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
                             echo "Esta es tu primera conexión!!!<br>";
                         } else {
-                            echo "Esta es la " . $_SESSION['sesion']['numConexiones'] + 1 . " vez que se contecta.<br>";
+                            echo "Esta es la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " vez que se contecta.<br>";
                             echo "Usted se conectó por ultima vez el <br>";
                             echo $fecha . " a las " . $hora;
                         }
                     } elseif ($_COOKIE["idioma"] === "en") {
-                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/London'));
+                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/London'));
                         // Convertir a zona horaria de Londres
                         $fechaHora->setTimezone(new DateTimeZone('Europe/London'));
                         $hora = $fechaHora->format('H:i');
                         $timestamp = $fechaHora->getTimestamp();
                         $formatoFecha = new IntlDateFormatter('en_GB', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
-                        echo " <h2>WELCOME " . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                        echo " <h2>WELCOME " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
                             echo "This is your first connection. !!!!<br>";
                         } else {
-                            echo "This is the " . $_SESSION['sesion']['numConexiones'] + 1 . " time you've logged in.<br>";
+                            echo "This is the " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " time you've logged in.<br>";
                             echo "You last connected on <br>";
                             echo $fecha . " at " . $hora;
                         }
                     } elseif ($_COOKIE["idioma"] === "fr") {
-                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/Paris'));
+                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Paris'));
                         $hora = $fechaHora->format('H:i');
                         $timestamp = $fechaHora->getTimestamp();
                         $formatoFecha = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
-                        echo " <h2>BIENVENUE " . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                        echo " <h2>BIENVENUE " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
                             echo "C'est votre première connexion. !!!!<br>";
                         } else {
-                            echo "C'est la " . $_SESSION['sesion']['numConexiones'] + 1 . " fois que vous vous connectez.<br>";
+                            echo "C'est la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " fois que vous vous connectez.<br>";
                             echo "Vous vous êtes connecté(e) pour la dernière fois le <br>";
                             echo $fecha . " à " . $hora;
                         }
@@ -146,7 +148,7 @@ if (isset($_REQUEST["detalle"])) {
                     <div class="info">
                         <p >
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            <time datetime="2025-11-27"></time> 27-11-2025 </address>
                     </div> 
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>

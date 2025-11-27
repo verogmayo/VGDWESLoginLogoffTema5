@@ -1,21 +1,16 @@
 <?php
 /**
  * @author: Véronique Grué
- * @since 15/11/2025
+ * Ultima modificación: 27/11/2025
  * 
- * Ejercicio 1: Desarrollo de un control de acceso con identificación del usuario basado en la función header().
+ * 
+ * Página de login de la applicación Loginlogoff
  */
-/**
- * @var array<string, string> $aUsuarios Array asociativo con los usuarios válidos, sus contraseñas nombres completos.
- * La clave es el nombre de usuario y el valor es la contraseña y el nombre.
- */
-if (isset($_REQUEST["volver"])) {
-    header("location: ../indexLoginLogoffTema5.php");
-    exit;
-}
+//REdirecciona a la página de inicio publico si se le da a volver
+
+//Si las credenciales son correctas al hacer clic redirecciona a la pagina de inicio privado el usuario
 if (isset($_REQUEST["iniciar"])) {
-    //   header("location: inicio.php");
-    header("location: formulario.php");
+    header("location: inicio.php");
     exit;
 }
 
@@ -57,23 +52,28 @@ if (isset($_REQUEST['enviar'])) {//se cumple si el boton es buscar
 }
 //Tratamiento del formulario
 if ($entradaOK) {
-    //REllenamos el array de respuesta con los valores que ha introducido el usuario
+
 
     try {
+        //Se establece la conexión con la BD
         $miDB = new PDO(DNS, USUARIODB, PSWD);
         $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //Se hace la consulta y se saca la información que se necesita de la tabla.
         $sql = <<<SQL
                         SELECT T01_CodUsuario,
                         T01_Password,
                         T01_DescUsuario,
                         T01_FechaHoraUltimaConexion,
-                        T01_NumConexiones
+                        T01_NumConexiones,
+                        T01_Perfil,
+                        T01_ImagenUsuario
                         FROM T_01Usuario 
                         WHERE T01_CodUsuario= :usuario AND 
                         T01_Password = sha2(:passwd,256)
                         SQL;
 
         $consulta = $miDB->prepare($sql);
+        //Se comprueba el usuario y la contraseña con los datos introducidos por el usuario
         $consulta->execute([
             ':usuario' => $_REQUEST['usuario'],
             ':passwd' => $_REQUEST['usuario'] . $_REQUEST['passwd']
@@ -96,18 +96,27 @@ if ($entradaOK) {
                             SQL;
             $consulta2 = $miDB->prepare($actualizacion);
             $consulta2->execute([':usuario' => $_REQUEST['usuario']]);
-
+            // Establecer la zona horaria, para que salga la hora local
+            date_default_timezone_set('Europe/Madrid');
+            // crear un objet de DateTime
+            $fechaHoraActual = new DateTime();
+            
             //Se recogen estos datos de la sesión en un array $aDatosSession
             $aDatosSesion = [
-                'usuario' => $usuarioBD['T01_CodUsuario'],
-                'descripcion' => $usuarioBD['T01_DescUsuario'],
-                'ultimaConexion' => $usuarioBD['T01_FechaHoraUltimaConexion'],
-                'numConexiones' => $usuarioBD['T01_NumConexiones']
+                'CodUsuario' => $usuarioBD['T01_CodUsuario'],
+                'Password' => $usuarioBD['T01_Password'],
+                'DescUsuario' => $usuarioBD['T01_DescUsuario'],
+                'FechaHoraUltimaConexionAnterior' => $usuarioBD['T01_FechaHoraUltimaConexion'],
+                'FechaHoraUltimaConexion' => $fechaHoraActual,
+                'NumConexiones' => $usuarioBD['T01_NumConexiones'],
+                'Perfil' => $usuarioBD['T01_Perfil'],
+                'ImagenUsuario' => $usuarioBD['T01_ImagenUsuario'],
+                
             ];
-            //y se guardan en un array en lka sesión
-            $_SESSION['sesion'] = $aDatosSesion;
+            //y se guardan en un array de  sesión
+            $_SESSION['usuarioVGDAWAppLoginLogoff'] = $aDatosSesion;
             //y  se abre inicio.php
-//            header("Location: inicio.php");
+
             // Redirigir según el usuario
             if ($usuarioBD['T01_CodUsuario'] === 'noita') {
                 header("Location: noa.php");
@@ -147,7 +156,9 @@ if ($entradaOK) {
             </div>
             <nav class="banderas">
                 <form >
-                    <!-- Botones de idiomas -->
+                    <!-- Botones de idiomas 
+                    Solo aparece el boton que corresponda a la cookie de idioma-->
+                    
                     <?php if ($_COOKIE["idioma"] === "es"){
                     echo '<button class="idioma selecionado" type="submit" name="es" id="es"> <img src="../webroot/images/banderaEs.png"  alt="es"/> </button>';
                     }
@@ -180,7 +191,9 @@ if ($entradaOK) {
                     </div>
 
                     <div class="divBotones">
-                        <button class="botonAzul" type="submit" name="volver" id="volver">Volver</button>
+                        <div class="botonVolverLogin">
+                          <a href="../indexLoginLogoffTema5.php" class="botonAzul" id="volver">Volver</a>  
+                        </div>
                         <button class="botonSession" type="submit" name="enviar">Enviar</button>
                     </div>
 
@@ -201,7 +214,7 @@ if ($entradaOK) {
                     <div class="info">
                         <p >
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            <time datetime="2025-11-27"></time> 27-11-2025 </address>
                     </div> 
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
