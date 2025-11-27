@@ -84,10 +84,10 @@ if (isset($_REQUEST["detalle"])) {
                         $formatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
                         echo " <h2>BIENVENIDO " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
-                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "Esta es tu primera conexión!!!<br>";
                         } else {
-                            echo "Esta es la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " vez que se contecta.<br>";
+                            echo "Esta es la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones']  . " vez que se contecta.<br>";
                             echo "Usted se conectó por ultima vez el <br>";
                             echo $fecha . " a las " . $hora;
                         }
@@ -100,10 +100,10 @@ if (isset($_REQUEST["detalle"])) {
                         $formatoFecha = new IntlDateFormatter('en_GB', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
                         echo " <h2>WELCOME " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
-                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "This is your first connection. !!!!<br>";
                         } else {
-                            echo "This is the " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " time you've logged in.<br>";
+                            echo "This is the " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones']  . " time you've logged in.<br>";
                             echo "You last connected on <br>";
                             echo $fecha . " at " . $hora;
                         }
@@ -114,10 +114,10 @@ if (isset($_REQUEST["detalle"])) {
                         $formatoFecha = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
                         $fecha = $formatoFecha->format($timestamp);
                         echo " <h2>BIENVENUE " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
-                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 0) {
+                        if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "C'est votre première connexion. !!!!<br>";
                         } else {
-                            echo "C'est la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] + 1 . " fois que vous vous connectez.<br>";
+                            echo "C'est la " . $_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones']  . " fois que vous vous connectez.<br>";
                             echo "Vous vous êtes connecté(e) pour la dernière fois le <br>";
                             echo $fecha . " à " . $hora;
                         }
