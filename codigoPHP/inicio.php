@@ -6,7 +6,7 @@
  * 
  */
 session_start();
-if (!isset($_SESSION["usuario"])) {
+if (!isset($_SESSION["sesion"])) {
     header("location: ../indexLoginLogoffTema5.php");
     exit;
 }
@@ -49,7 +49,16 @@ if (isset($_REQUEST["detalle"])) {
             </div>
             <nav>
                 <form>
-
+                    <!-- Botones de idiomas -->
+                    <?php if ($_COOKIE["idioma"] === "es"){
+                    echo '<button class="idioma selecionado" type="submit" name="es" id="es"> <img src="../webroot/images/banderaEs.png"  alt="es"/> </button>';
+                    }
+                    if ($_COOKIE["idioma"] === "en"){
+                    echo '<button class="idioma selecionado" type="submit" name="en" id="en"> <img src="../webroot/images/banderaGb.png"  alt="en" /> </button>';	
+                    }
+                    if ($_COOKIE["idioma"] === "fr"){
+                    echo '<button class="idioma selecionado" type="submit" name="fr" id="fr"> <img src="../webroot/images/banderaFr.png"  alt="fr" /> </button>';
+                    }?>
                     <button class="botonSession" type="submit" name="cerrar" id="cerrar">Cerrar Sessión</button>
                 </form>
 
@@ -60,42 +69,56 @@ if (isset($_REQUEST["detalle"])) {
             <section>
                 <div class="titulo2">
                     <?php
-                    //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
-                    //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
-                    // Solo fecha completa
-//                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-//// Salida: "martes, 26 de noviembre de 2025"
-//// Fecha y hora
-////                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::SHORT);
-//// Salida: "26 de noviembre de 2025, 14:30"
-//// Solo hora
-//                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::NONE, IntlDateFormatter::MEDIUM);
-// Salida: "14:30:45"
-                    
-                    $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion']);
-                    //para utilizar intl es mejor utilizar timestamp
-                    $fmt = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                    $fmt->setPattern('EEEE j \d\e MMMM \d\e Y');
-                    echo $fmt->format($fechaHora);
-//                    $FechaHoraTimeStamp = $fechaHora->getTimestamp();
+                    //https://www.php.net/manual/es/timezones.php
 
-                    $fecha = $fechaHora->format('d-m-Y');
-                    $hora = $fechaHora->format('d-m-Y');
+
                     if ($_COOKIE["idioma"] === "es") {
-                        echo "<h2>" . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        echo " <h2>BIENVENIDO A TU AREA PRIVADA</h2>";
-                        echo "Última conexión : el " . $fecha . " a las " . $hora . "<br>";
-                        echo "Numero de conexiones: " . $_SESSION['sesion']['numConexiones'];
+                        //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
+                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/Madrid'));
+                        $hora = $fechaHora->format('H:i');
+                        //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
+                        //se utiliza timestamp para que intl funcione mejor
+                        $timestamp = $fechaHora->getTimestamp();
+                        $formatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $formatoFecha->format($timestamp);
+                        echo " <h2>BIENVENIDO " . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                            echo "Esta es tu primera conexión!!!<br>";
+                        } else {
+                            echo "Esta es la " . $_SESSION['sesion']['numConexiones'] + 1 . " vez que se contecta.<br>";
+                            echo "Usted se conectó por ultima vez el <br>";
+                            echo $fecha . " a las " . $hora;
+                        }
                     } elseif ($_COOKIE["idioma"] === "en") {
-                        echo "<h2>" . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        echo "<h2>WELCOME TO YOUR PRIVATE AREA </h2>";
-                        echo "Last connection : on " . $fecha . " at " . $hora . "<br>";
-                        echo "Number of connections: " . $_SESSION['sesion']['numConexiones'];
+                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/London'));
+                        // Convertir a zona horaria de Londres
+                        $fechaHora->setTimezone(new DateTimeZone('Europe/London'));
+                        $hora = $fechaHora->format('H:i');
+                        $timestamp = $fechaHora->getTimestamp();
+                        $formatoFecha = new IntlDateFormatter('en_GB', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $formatoFecha->format($timestamp);
+                        echo " <h2>WELCOME " . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                            echo "This is your first connection. !!!!<br>";
+                        } else {
+                            echo "This is the " . $_SESSION['sesion']['numConexiones'] + 1 . " time you've logged in.<br>";
+                            echo "You last connected on <br>";
+                            echo $fecha . " at " . $hora;
+                        }
                     } elseif ($_COOKIE["idioma"] === "fr") {
-                        echo "<h2> " . $_SESSION['sesion']['descripcion'] . "</h2>";
-                        echo "<h2>BIENVENUE A TON ESPACE PRIVÉ</h2>";
-                        echo "Dernière connexion : le " . $fecha . " à " . $hora . "<br>";
-                        echo "Nombre de connexions: " . $_SESSION['sesion']['numConexiones'];
+                        $fechaHora = new DateTime($_SESSION['sesion']['ultimaConexion'], new DateTimeZone('Europe/Paris'));
+                        $hora = $fechaHora->format('H:i');
+                        $timestamp = $fechaHora->getTimestamp();
+                        $formatoFecha = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $formatoFecha->format($timestamp);
+                        echo " <h2>BIENVENUE " . $_SESSION['sesion']['descripcion'] . "</h2>";
+                        if ($_SESSION['sesion']['numConexiones'] == 0) {
+                            echo "C'est votre première connexion. !!!!<br>";
+                        } else {
+                            echo "C'est la " . $_SESSION['sesion']['numConexiones'] + 1 . " fois que vous vous connectez.<br>";
+                            echo "Vous vous êtes connecté(e) pour la dernière fois le <br>";
+                            echo $fecha . " à " . $hora;
+                        }
                     }
                     ?>
 

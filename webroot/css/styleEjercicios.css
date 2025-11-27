@@ -105,6 +105,7 @@ h1{
     font-size: 36px;
     letter-spacing: -1px;
     font-weight: 700;
+    color :var(--colorAzul2);
 }
 .tituloCentral{
     font-size: 36px;
@@ -117,6 +118,15 @@ nav button{
     margin: 0 10px;
     vertical-align: middle;
 }
+.idioma{
+    background: transparent;
+    margin: 0;
+    padding: 10px;
+    & img{
+        width: 20px;
+    }
+}
+
 
 .botonSession{
     background-color: var(--colorAzul);
@@ -365,3 +375,43 @@ input:focus{
     box-shadow: 0 0 0 .5px blue;
 }
 
+/*CSS NOA*/
+.sectionNoa{
+    display: inline;
+}
+.articleNoa{
+    display: flex;
+    flex-direction: column;
+    justify-self:  center; 
+    & .divNoa{
+        display: flex;
+        justify-content: space-around;
+    } 
+    & p{
+        font-size: 18px;
+    }
+   
+}
+.tituloNoa{
+  padding-top: 50px;
+    font-size: 36px;
+    letter-spacing: -1px;
+    font-weight: 700; 
+    padding-bottom: 50px;
+    color:var(--colorAzul);
+}
+#chiffrex{
+    display: inline-flex;
+    margin: 20px;
+    width: 150px;
+}
+#constante{
+    display: inline-flex;
+    width: 150px;
+}
+.imgNoa{
+    width: 800px;
+}
+.divImgNoa{
+    margin: 20px 0;
+}

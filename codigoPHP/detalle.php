@@ -6,7 +6,7 @@
  * 
  */
 session_start();
-if (!isset($_SESSION["usuario"])) {
+if (!isset($_SESSION["sesion"])) {
     header("location: ../indexLoginLogoffTema5.php");
     exit;
 }
