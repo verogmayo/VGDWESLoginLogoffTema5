@@ -76,13 +76,13 @@ if (isset($_REQUEST["detalle"])) {
 
                     if ($_COOKIE["idioma"] === "es") {
                         //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
-                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Madrid'));
-                        $hora = $fechaHora->format('H:i');
+                        $oFechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Madrid'));
+                        $hora = $oFfechaHora->format('H:i');
                         //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
                         //se utiliza timestamp para que intl funcione mejor
-                        $timestamp = $fechaHora->getTimestamp();
-                        $formatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                        $fecha = $formatoFecha->format($timestamp);
+                        $timestamp = $oFechaHora->getTimestamp();
+                        $oFormatoFecha = new IntlDateFormatter('es_ES', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $oFormatoFecha->format($timestamp);
                         echo " <h2>BIENVENIDO " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
                         if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "Esta es tu primera conexión!!!<br>";
@@ -92,13 +92,13 @@ if (isset($_REQUEST["detalle"])) {
                             echo $fecha . " a las " . $hora;
                         }
                     } elseif ($_COOKIE["idioma"] === "en") {
-                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/London'));
+                        $oFechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/London'));
                         // Convertir a zona horaria de Londres
-                        $fechaHora->setTimezone(new DateTimeZone('Europe/London'));
-                        $hora = $fechaHora->format('H:i');
-                        $timestamp = $fechaHora->getTimestamp();
-                        $formatoFecha = new IntlDateFormatter('en_GB', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                        $fecha = $formatoFecha->format($timestamp);
+                        $oFechaHora->setTimezone(new DateTimeZone('Europe/London'));
+                        $hora = $oFechaHora->format('H:i');
+                        $timestamp = $oFechaHora->getTimestamp();
+                        $oFormatoFecha = new IntlDateFormatter('en_GB', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $oFormatoFecha->format($timestamp);
                         echo " <h2>WELCOME " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
                         if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "This is your first connection. !!!!<br>";
@@ -108,11 +108,11 @@ if (isset($_REQUEST["detalle"])) {
                             echo $fecha . " at " . $hora;
                         }
                     } elseif ($_COOKIE["idioma"] === "fr") {
-                        $fechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Paris'));
-                        $hora = $fechaHora->format('H:i');
-                        $timestamp = $fechaHora->getTimestamp();
-                        $formatoFecha = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-                        $fecha = $formatoFecha->format($timestamp);
+                        $oFechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Paris'));
+                        $hora = $oFechaHora->format('H:i');
+                        $timestamp = $oFechaHora->getTimestamp();
+                        $oFormatoFecha = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+                        $fecha = $oFormatoFecha->format($timestamp);
                         echo " <h2>BIENVENUE " . $_SESSION['usuarioVGDAWAppLoginLogoff']['DescUsuario'] . "</h2>";
                         if ($_SESSION['usuarioVGDAWAppLoginLogoff']['NumConexiones'] == 1) {
                             echo "C'est votre première connexion. !!!!<br>";
