@@ -37,11 +37,9 @@ body{
     flex: 1;
     flex-direction: column;
 }
-/*section img{
-    float: right; /*para que los textos floten alrededor
-}*/
+
 header{
-    /*overflow: hidden;para controlar los elementos que están flotando*/
+   
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -49,10 +47,7 @@ header{
     padding: 10px;
 }
 
-header nav{
-    /*    margin-right: 30px;
-        padding: 10px 0;*/
-}
+
 .proyecto{
     text-align: center;
     letter-spacing: -1px;
@@ -61,18 +56,7 @@ header nav{
     font-size: 16px;
     font-weight: 800;
 }
-/*.azul{
-    color: var(--colorAzul2);
-}
-.rojo{
-    color:var(--colorRojo);
-}
-.verde{
-    color: var(--colorVerde);
-}
-.amarillo{
-    color: var(--colorAmarillo);
-}*/
+
 .letras span:nth-child(6n+1) {
     color: var(--colorAzul2);
 }
@@ -153,6 +137,13 @@ nav button{
     color: var(--colorAzul);
     background: white;
     padding: 0 20px;
+    justify-content: center;
+    align-self: center;
+}
+.botonVolverLogin{
+    padding-top: 20px;
+    display: flex;
+    align-content: center;
 }
 .boton:hover{
     text-decoration:underline ;
@@ -160,15 +151,12 @@ nav button{
 
 /*Estilos contenido pricipal.. main*/
 main{
-    /*    width: 100vw;
-        height: 100%;
-        position: relative;*/
-    /*    inset: 0;es igual que poner top0, bottom0, left0,right0*/
-    /*    margin: auto;*/
+   
     text-align: center;
     flex: 1;
 
 }
+
 /*Estilos para las variables superGlobales*/
 section{
     justify-content:  center;
@@ -235,6 +223,9 @@ td:nth-child(odd) {
     display: flex;
     justify-content: end;
     padding-right: 30px;
+}
+.botonVolver{
+    justify-content: center;
 }
 
 
@@ -354,7 +345,7 @@ button{
 }
 .contenedorInput{
     position: relative;
-    /*    margin: 10px 0;*/
+   
 }
 input:focus + label, input:not(:placeholder-shown) + label {
     top: 10px;

@@ -1,20 +1,23 @@
 <?php
 /**
  * @author: Véronique Grué
- * @since 15/11/2025
+ * Ultima actualización : 27/11/2025
  * 
- * 
+ * Página de inicio de la parte privada
  */
 session_start();
+//Si la session no se ha iniciado, reenvía a la pagina de inicio publico
 if (!isset($_SESSION["usuarioVGDAWAppLoginLogoff"])) {
     header("location: login.php");
     exit;
 }
+//Si el usuario hace clic en cerrar session, reenvía a la pagina de inicio publico
 if (isset($_REQUEST["cerrar"])) {
     session_destroy();
     header("location: ../indexLoginLogoffTema5.php");
     exit;
 }
+// Redirección a la pagina de detalle cuando se hace clic en el bton
 if (isset($_REQUEST["detalle"])) {
     header("location: detalle.php");
     exit;
@@ -49,7 +52,8 @@ if (isset($_REQUEST["detalle"])) {
             </div>
             <nav>
                 <form>
-                    <!-- Botones de idiomas -->
+                    <!-- Botones de idiomas 
+                    Solo aparece el boton que corresponda a la cookie de idioma-->
                     <?php if ($_COOKIE["idioma"] === "es"){
                     echo '<button class="idioma selecionado" type="submit" name="es" id="es"> <img src="../webroot/images/banderaEs.png"  alt="es"/> </button>';
                     }
@@ -61,9 +65,7 @@ if (isset($_REQUEST["detalle"])) {
                     }?>
                     <button class="botonSession" type="submit" name="cerrar" id="cerrar">Cerrar Sessión</button>
                 </form>
-
             </nav>
-
         </header>
         <main>
             <section>
@@ -146,7 +148,7 @@ if (isset($_REQUEST["detalle"])) {
                     <div class="info">
                         <p >
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            <time datetime="2025-11-27"></time> 27-11-2025 </address>
                     </div> 
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>

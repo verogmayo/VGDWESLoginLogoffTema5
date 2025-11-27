@@ -1,7 +1,8 @@
 <?php
 /**
  * @author: Véronique Grué
- * @since 20/11/2025
+ * @since 27/11/2025
+ * Aplicación LoginLogOff
  * 
  * Página de inicio publico de la aplicación.
  */
@@ -10,18 +11,16 @@ if (isset($_REQUEST["login"])) {
     header("location: codigoPHP/login.php");
     exit;
 }
-//Cookies para los idiomas. Si se hace clic en el boton de francés, el mensaje de bienvenida será en frances,
-//Si se hace clic en el boton de ingles, el mensaje será en ingles y sino será en castellano.
-if(!isset($_COOKIE["idioma"])){
-    setcookie("idioma", "es", time() + 3600);
-}
-if (isset($_REQUEST["fr"])) {
-    setcookie("idioma", "fr", time() + 3600);
-}
-if (isset($_REQUEST["en"])) {
-    setcookie("idioma", "en", time() + 3600);
-}
 
+//Si no se ha iniciado session se crea la cookie del idioma español
+if(!isset($_COOKIE["idioma"])){
+    setcookie("idioma", "es", time() + 604800);//CAducidad de la cookie:1 semana
+}
+//Se crea la cookie del idioma en el que se hace clic
+if (isset($_REQUEST["idioma"])) {
+    setcookie("idioma", $_REQUEST["idioma"], time() + 604800);//Caducidad de la cookie: 1 semana
+    header('Location: indexLoginLogoffTema5.php');
+}
 
 ?>
 <!DOCTYPE html>
@@ -58,9 +57,15 @@ if (isset($_REQUEST["en"])) {
             <nav>
                 <form method="post">
                     <!-- Botones de idiomas -->
-                    <button class="idioma" type="submit" name="idioma" id="es" value="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es"/> </button>
-                    <button class="idioma" type="submit" name="idioma" id="en" value="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>	
-                    <button class="idioma" type="submit" name="idioma" id="fr" value="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>    
+                    <!-- Si no se ha iniciado cession o si se hace clic en el boton de español, el icono de la bandera de españa se hace mas grande-->
+                    <button class="idioma <?php echo (!isset($_COOKIE['idioma']) || $_COOKIE['idioma'] == 'es') ? 'seleccionado' : ''; ?>" 
+                            type="submit" name="idioma" id="es" value="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es"/> </button>
+                     <!-- Si se hace clic en el icono de la bandera de GB, el icono se hace mas grande-->
+                    <button class="idioma <?php echo (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] == 'en') ? 'seleccionado' : ''; ?>"  
+                            type="submit" name="idioma" id="en" value="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>	
+                    <!-- Si se hace clic en el icono de la bandera de Francia, el icono se hace mas grande-->
+                     <button class="idioma <?php echo (isset($_COOKIE['idioma']) && $_COOKIE['idioma'] == 'fr') ? 'seleccionado' : ''; ?>"  
+                            type="submit" name="idioma" id="fr" value="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>    
                     <!-- Botón de login -->
                     <button class="botonSession" type="submit" name="login" id="login">login</button>
                 </form>
@@ -87,7 +92,7 @@ if (isset($_REQUEST["en"])) {
                     <div class="info">
                         <p >
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
-                            <time datetime="2025-11-19"></time> 19-11-2025 </address>
+                            <time datetime="2025-11-27"></time> 27-11-2025 </address>
                     </div>
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
