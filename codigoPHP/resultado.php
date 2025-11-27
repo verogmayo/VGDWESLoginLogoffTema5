@@ -6,7 +6,7 @@
  * 
  */
             session_start();
-            if (!isset($_SESSION["sesion"])) {
+            if (!isset($_SESSION["usuarioVGDAWAppLoginLogoff"])) {
                 header("location: ../indexLoginLogoffTema5.php");
                 exit;
             }
@@ -52,7 +52,7 @@
             <main>
                 <section class="sectionNoa">
                     <div class="tituloNoa">
-                        <h2>BRAVO <?php echo $_SESSION['sesion']['descripcion'] ?>!!!!!!</h2>
+                        <h2>BRAVO <?php echo $_SESSION['usuarioVGDAWAppLoginLogoff']['descripcion'] ?>!!!!!!</h2>
                     </div>  
                     <article class="articleNoa">
                         <div class="divTexte">

@@ -12,13 +12,16 @@ if (isset($_REQUEST["login"])) {
 }
 //Cookies para los idiomas. Si se hace clic en el boton de francés, el mensaje de bienvenida será en frances,
 //Si se hace clic en el boton de ingles, el mensaje será en ingles y sino será en castellano.
-if (isset($_REQUEST["fr"])) {
-    setcookie("idioma", "fr", time() + 3600);
-}elseif (isset($_REQUEST["en"])) {
-    setcookie("idioma", "en", time() + 3600);
-}else{
+if(!isset($_COOKIE["idioma"])){
     setcookie("idioma", "es", time() + 3600);
 }
+if (isset($_REQUEST["fr"])) {
+    setcookie("idioma", "fr", time() + 3600);
+}
+if (isset($_REQUEST["en"])) {
+    setcookie("idioma", "en", time() + 3600);
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -55,9 +58,9 @@ if (isset($_REQUEST["fr"])) {
             <nav>
                 <form method="post">
                     <!-- Botones de idiomas -->
-                    <button class="idioma" type="submit" name="es" id="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es"/> </button>
-                    <button class="idioma" type="submit" name="en" id="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>	
-                    <button class="idioma" type="submit" name="fr" id="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>    
+                    <button class="idioma" type="submit" name="idioma" id="es" value="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es"/> </button>
+                    <button class="idioma" type="submit" name="idioma" id="en" value="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>	
+                    <button class="idioma" type="submit" name="idioma" id="fr" value="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>    
                     <!-- Botón de login -->
                     <button class="botonSession" type="submit" name="login" id="login">login</button>
                 </form>

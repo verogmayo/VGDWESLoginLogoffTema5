@@ -14,8 +14,7 @@ if (isset($_REQUEST["volver"])) {
     exit;
 }
 if (isset($_REQUEST["iniciar"])) {
-    //   header("location: inicio.php");
-    header("location: formulario.php");
+    header("location: inicio.php");
     exit;
 }
 
@@ -96,16 +95,19 @@ if ($entradaOK) {
                             SQL;
             $consulta2 = $miDB->prepare($actualizacion);
             $consulta2->execute([':usuario' => $_REQUEST['usuario']]);
-
+           
+            $fechaHoraActual = new DateTime();
             //Se recogen estos datos de la sesión en un array $aDatosSession
             $aDatosSesion = [
-                'usuario' => $usuarioBD['T01_CodUsuario'],
-                'descripcion' => $usuarioBD['T01_DescUsuario'],
-                'ultimaConexion' => $usuarioBD['T01_FechaHoraUltimaConexion'],
-                'numConexiones' => $usuarioBD['T01_NumConexiones']
+                'CodUsuario' => $usuarioBD['T01_CodUsuario'],
+                'Password' => $usuarioBD['T01_Password'],
+                'DescUsuario' => $usuarioBD['T01_DescUsuario'],
+                'FechaHoraUltimaConexionAnterior' => $usuarioBD['T01_FechaHoraUltimaConexion'],
+                'FechaHoraUltimaConexion' => $fechaHoraActual,
+                'NumConexiones' => $usuarioBD['T01_NumConexiones']
             ];
             //y se guardan en un array en lka sesión
-            $_SESSION['sesion'] = $aDatosSesion;
+            $_SESSION['usuarioVGDAWAppLoginLogoff'] = $aDatosSesion;
             //y  se abre inicio.php
 //            header("Location: inicio.php");
             // Redirigir según el usuario
