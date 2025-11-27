@@ -18,7 +18,7 @@ if (isset($_REQUEST["iniciar"])) {
     header("location: formulario.php");
     exit;
 }
-session_start();
+
 //enlace para importar las librerías de validación de campos
 require_once '../core/libreriaValidacion.php';
 //enlace para la configuración de la conexion a la base de datos
@@ -85,9 +85,8 @@ if ($entradaOK) {
             //Si las credenciales no son correctas la entrada es false
             $entradaOK = false;
         } else {
-            // sino se inicia la session 
-            session_start();
 
+            session_start();
             //Se actualiza lafecha de ultima session y el contador de conexiones
             $actualizacion = <<<SQL
                                      UPDATE T_01Usuario SET
@@ -97,14 +96,24 @@ if ($entradaOK) {
                             SQL;
             $consulta2 = $miDB->prepare($actualizacion);
             $consulta2->execute([':usuario' => $_REQUEST['usuario']]);
-            
-            //Se guardan estos datos en la session
-            $_SESSION['usuario'] = $usuarioBD['T01_CodUsuario'];
-            $_SESSION['descripcion'] = $usuarioBD['T01_DescUsuario'];
-            $_SESSION['ultimaConexion'] = $usuarioBD['T01_FechaHoraUltimaConexion'];
-            $_SESSION['numConexiones'] = $usuarioBD['T01_NumConexiones'];
+
+            //Se recogen estos datos de la sesión en un array $aDatosSession
+            $aDatosSesion = [
+                'usuario' => $usuarioBD['T01_CodUsuario'],
+                'descripcion' => $usuarioBD['T01_DescUsuario'],
+                'ultimaConexion' => $usuarioBD['T01_FechaHoraUltimaConexion'],
+                'numConexiones' => $usuarioBD['T01_NumConexiones']
+            ];
+            //y se guardan en un array en lka sesión
+            $_SESSION['sesion'] = $aDatosSesion;
             //y  se abre inicio.php
-            header("Location: inicio.php");
+//            header("Location: inicio.php");
+            // Redirigir según el usuario
+            if ($usuarioBD['T01_CodUsuario'] === 'noita') {
+                header("Location: noa.php");
+            } else {
+                header("Location: inicio.php");
+            }
             exit;
         }
     } catch (Exception $ex) {
@@ -136,15 +145,25 @@ if ($entradaOK) {
             <div>
                 <h1>LOGIN</h1>
             </div>
-            <nav>
-
-
+            <nav class="banderas">
+                <form >
+                    <!-- Botones de idiomas -->
+                    <?php if ($_COOKIE["idioma"] === "es"){
+                    echo '<button class="idioma selecionado" type="submit" name="es" id="es"> <img src="../webroot/images/banderaEs.png"  alt="es"/> </button>';
+                    }
+                    if ($_COOKIE["idioma"] === "en"){
+                    echo '<button class="idioma selecionado" type="submit" name="en" id="en"> <img src="../webroot/images/banderaGb.png"  alt="en" /> </button>';	
+                    }
+                    if ($_COOKIE["idioma"] === "fr"){
+                    echo '<button class="idioma selecionado" type="submit" name="fr" id="fr"> <img src="../webroot/images/banderaFr.png"  alt="fr" /> </button>';
+                    }?>
+                </form>
             </nav>
         </header>
         <main class="mainForm">
             <section class="formulario">
                 <div class="imagen"><img src="../webroot/images/logo.png" alt="logo"/>
-                    <p class="pInicioSession"> Inicia Sessión en Login Logoff Tema5</p>
+                    <p class="pInicioSession"> Inicia Sessión en Login Logof Tema5</p>
                 </div>
 
                 <form class="form" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
@@ -161,7 +180,7 @@ if ($entradaOK) {
                     </div>
 
                     <div class="divBotones">
-                        <button class="botonAzul" type="button" name="volver" id="volver">Volver</button>
+                        <button class="botonAzul" type="submit" name="volver" id="volver">Volver</button>
                         <button class="botonSession" type="submit" name="enviar">Enviar</button>
                     </div>
 

@@ -49,21 +49,18 @@ if (isset($_REQUEST["fr"])) {
                 <p class="letras">
                     <span>I</span><span>N</span><span>I</span><span>C</span><span>I</span><span>O</span>
                     <span>&nbsp;</span>
-                    <span>P</span><span>R</span><span>I</span><span>V</span><span>A</span><span>D</span><span>O</span>
+                    <span>P</span><span>Ú</span><span>B</span><span>L</span><span>I</span><span>C</span><span>O</span>
                 </p>
             </div>
             <nav>
-
                 <form method="post">
                     <!-- Botones de idiomas -->
                     <button class="idioma" type="submit" name="es" id="es"> <img src="webroot/images/banderaEs.png" width="20" alt="es"/> </button>
-                    <button class="idioma" type="submit" name="en" id="en"> <img src="webroot/images/banderaGb.png" width="20" alt="es" /> </button>	
-                    <button class="idioma" type="submit" name="fr" id="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="es" /> </button>    
-                    <!-- Boton de login -->
+                    <button class="idioma" type="submit" name="en" id="en"> <img src="webroot/images/banderaGb.png" width="20" alt="en" /> </button>	
+                    <button class="idioma" type="submit" name="fr" id="fr"> <img src="webroot/images/banderaFr.png" width="20" alt="fr" /> </button>    
+                    <!-- Botón de login -->
                     <button class="botonSession" type="submit" name="login" id="login">login</button>
-
                 </form>
-                
             </nav>
         </header>
         <main>
