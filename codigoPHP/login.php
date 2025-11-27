@@ -99,7 +99,7 @@ if ($entradaOK) {
             // Establecer la zona horaria, para que salga la hora local
             date_default_timezone_set('Europe/Madrid');
             // crear un objet de DateTime
-            $fechaHoraActual = new DateTime();
+            $oFechaHoraActual = new DateTime();
             
             //Se recogen estos datos de la sesión en un array $aDatosSession
             $aDatosSesion = [
@@ -107,7 +107,7 @@ if ($entradaOK) {
                 'Password' => $usuarioBD['T01_Password'],
                 'DescUsuario' => $usuarioBD['T01_DescUsuario'],
                 'FechaHoraUltimaConexionAnterior' => $usuarioBD['T01_FechaHoraUltimaConexion'],
-                'FechaHoraUltimaConexion' => $fechaHoraActual,
+                'FechaHoraUltimaConexion' => $oFechaHoraActual,
                 'NumConexiones' => $usuarioBD['T01_NumConexiones']+1,
                 'Perfil' => $usuarioBD['T01_Perfil'],
                 'ImagenUsuario' => $usuarioBD['T01_ImagenUsuario'],
