@@ -108,7 +108,7 @@ if ($entradaOK) {
                 'DescUsuario' => $usuarioBD['T01_DescUsuario'],
                 'FechaHoraUltimaConexionAnterior' => $usuarioBD['T01_FechaHoraUltimaConexion'],
                 'FechaHoraUltimaConexion' => $fechaHoraActual,
-                'NumConexiones' => $usuarioBD['T01_NumConexiones'],
+                'NumConexiones' => $usuarioBD['T01_NumConexiones']+1,
                 'Perfil' => $usuarioBD['T01_Perfil'],
                 'ImagenUsuario' => $usuarioBD['T01_ImagenUsuario'],
                 
