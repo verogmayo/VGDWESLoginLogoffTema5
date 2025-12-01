@@ -91,7 +91,9 @@ if (isset($_REQUEST["idioma"])) {
                 <div class="footerInfo">
                     <div class="info">
                         <p >
-                            2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
+                            2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> 
+                            <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> 
+                                Fecha de Actualización :
                             <time datetime="2025-11-27"></time> 27-11-2025 </address>
                     </div>
                     <div class="google">

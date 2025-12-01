@@ -30,6 +30,12 @@ if (isset($_REQUEST["detalle"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Véro Grué - ProyectoLoginLogoff Login</title>
         <link rel="stylesheet" href="../webroot/css/styleEjercicios.css">
+        <!--Fuente de google font-->
+        <!--Para descargar iconos. https://v2.boxicons.com/usage  (import the css)-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="webroot/css/styles.css">
+        <!--https://cdnjs.com/libraries/font-awesome --> 
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
     </head>
     <body>
@@ -77,7 +83,7 @@ if (isset($_REQUEST["detalle"])) {
                     if ($_COOKIE["idioma"] === "es") {
                         //SE crea el objeto DateTime para poder utilizar fecha y hora de la ultima conexion.
                         $oFechaHora = new DateTime($_SESSION['usuarioVGDAWAppLoginLogoff']['FechaHoraUltimaConexionAnterior'], new DateTimeZone('Europe/Madrid'));
-                        $hora = $oFfechaHora->format('H:i');
+                        $hora = $oFechaHora->format('H:i');
                         //Como está instalada la extensión de internacionalización intl en el seridor y en plesk se va a utiliza IntlDAteFormater
                         //se utiliza timestamp para que intl funcione mejor
                         $timestamp = $oFechaHora->getTimestamp();
@@ -136,10 +142,10 @@ if (isset($_REQUEST["detalle"])) {
 
             </section>
         </main>
-        <footer >
+         <footer >
             <div class="footer">
                 <div class="pais">
-
+                    <p>España</p>
                     <div class="social-media">
                         <a href="https://github.com/verogmayo/VGDWESLoginLogoffTema5"><i class='bx bxl-github' ></i></a>
                     </div>
@@ -149,7 +155,7 @@ if (isset($_REQUEST["detalle"])) {
                         <p >
                             2025-26 IES LOS SAUCES. &#169;Todos los derechos reservados.</p> <address><a href="https://veroniquegru.ieslossauces.es/" target="_blank">Véronique Grué.</a> Fecha de Actualización :
                             <time datetime="2025-11-27"></time> 27-11-2025 </address>
-                    </div> 
+                    </div>
                     <div class="google">
                         <a href="https://www.google.com/"><i class="fa-brands fa-google" style="color: #1a73e8;"></i></a>
                     </div>

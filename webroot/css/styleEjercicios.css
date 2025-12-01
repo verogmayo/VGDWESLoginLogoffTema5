@@ -230,42 +230,7 @@ td:nth-child(odd) {
 
 
 
-/*Estilos del footer*/
-footer{
-    position: relative;
-    background-color: var(--colorClaro);
-    width: 100%;
-    padding-bottom: 5px;
-}
-footer .pais{
-  
-    border-bottom: 1px solid var(--colorGris);
-    color: #202124;
-    display: flex;
-    justify-content: space-between;
-}
-.bxl-github{
-    font-size: 2rem;
-    border-radius: 50%;
-    margin-right: 38px;
-    color: var(--colorClaro);
-    background-color: var(--colorAzul);
-}
-.footerInfo{
-    padding: 0 20px;
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-}
-.info{
-    width: 95%;
-}
-.google{
-    width: 5%;
-    font-size: 1.7rem;
-    padding-top: 5px;
 
-}
 
 /*Formulario*/
 .imagen{
@@ -366,6 +331,52 @@ input:focus{
     box-shadow: 0 0 0 .5px blue;
 }
 
+
+
+
+/*Estilos del footer ----------------------------------------------------------------*/
+footer{
+    /*position: absolute;*/
+    bottom: 0;
+    left: 0;
+    background-color: var(--colorClaro);
+    width: 100%;
+    padding: 15px 0;
+}
+footer .pais{
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--colorGris);
+    color: #202124;
+    display: flex;
+    justify-content: space-between;
+}
+.bxl-github{
+    font-size: 2rem;
+    border-radius: 50%;
+    margin-right: 38px;
+    color: var(--colorClaro);
+    background-color: var(--colorAzul);  
+}
+.footerInfo{
+    padding: 0 20px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;   
+}
+.info{
+    width: 95%;
+}
+.google{
+    width: 5%;
+    font-size: 1.7rem;
+    padding-top: 5px;
+    
+}
+
+
+
+/*----------------------------------------------------------------*/
 /*CSS NOA*/
 .sectionNoa{
     display: inline;
@@ -406,3 +417,4 @@ input:focus{
 .divImgNoa{
     margin: 20px 0;
 }
+
