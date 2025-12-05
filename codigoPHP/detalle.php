@@ -7,9 +7,10 @@
  */
 session_start();
 if (!isset($_SESSION["usuarioVGDAWAppLoginLogoff"])) {
-    header("location: ../indexLoginLogoffTema5.php");
+    header("location: ../codigoPHP/inicio.php");
     exit;
 }
+
 if (isset($_REQUEST["volver"])) {
     header("location: inicio.php");
     exit;

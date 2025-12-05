@@ -13,7 +13,9 @@ if (isset($_REQUEST["iniciar"])) {
     header("location: inicio.php");
     exit;
 }
-
+if(!isset($_COOKIE["idioma"])){
+    setcookie("idioma", "es", time() + 604800);//CAducidad de la cookie:1 semana
+}
 //enlace para importar las librerías de validación de campos
 require_once '../core/libreriaValidacion.php';
 //enlace para la configuración de la conexion a la base de datos
