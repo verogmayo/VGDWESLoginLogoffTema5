@@ -77,7 +77,9 @@ if (isset($_REQUEST["idioma"])) {
                 <div class="titulo">
                     <h2>BIENVENIDO A INICIO PÚBLICO</h2>
                 </div>
-
+                <div>
+                   <img class="imagenCentral" src="webroot/images/imagenAppLoginLoff.png"   alt="imagenAppMulticapa"/>
+                </div>
             </section>
         </main>
         <footer >

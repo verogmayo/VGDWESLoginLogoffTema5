@@ -64,10 +64,13 @@ h1{
     color:var(--colorAzul);
 }
 .titulo{
-    padding-top: 100px;
-   font-size: 36px;
+    padding-top: 10px;
+   font-size: 30px;
    letter-spacing: -1px;
    font-weight: 700;
+}
+.imagenCentral{
+    width: 60%;
 }
 .tituloCentral{
     font-size: 36px;
@@ -135,9 +138,7 @@ main{
 
 /*Estilos del footer*/
 footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-top: auto;
     background-color: var(--colorClaro);
     width: 100%;
     padding: 15px 0;

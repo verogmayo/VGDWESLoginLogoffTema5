@@ -15,7 +15,18 @@ if (isset($_REQUEST["iniciar"])) {
 }
 if(!isset($_COOKIE["idioma"])){
     setcookie("idioma", "es", time() + 604800);//CAducidad de la cookie:1 semana
+    header('Location: login.php');
 }
+/*
+DUDA : Mejor lo anterior o esto:
+if(!isset($_COOKIE["idioma"])) {
+    setcookie("idioma", "es", time() + 604800);
+    $idioma = "es";
+} else {
+    $idioma = $_COOKIE["idioma"];
+}
+  */
+
 //enlace para importar las librerías de validación de campos
 require_once '../core/libreriaValidacion.php';
 //enlace para la configuración de la conexion a la base de datos
